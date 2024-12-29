@@ -1,6 +1,6 @@
-# LeoGadilDotCom
+# LeoGadil.Com
 
-Welcome to **LeoGadilDotCom**, my personal portfolio website. This project showcases my skills, experiences, and projects as a software developer. It's a digital space where I express my professional journey and passion for coding through an aesthetically pleasing and functional design. 🎨✨💻
+Welcome to **LeoGadil.Com**, my personal portfolio website. This project showcases my skills, experiences, and projects as a software developer. It's a digital space where I express my professional journey and passion for coding through an aesthetically pleasing and functional design. 🎨✨💻
 
 ---
 
@@ -47,7 +47,7 @@ To run this project locally: 🖥️🔧📂
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/leogadildotcom.git
+   git clone [https://github.com/LeoooooGadil/leogadildotcom.git](https://github.com/LeoooooGadil/leogadildotcom.git)
    ```
 2. Navigate to the project directory:
    ```bash
@@ -93,11 +93,11 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 If you'd like to connect, you can find me at: 📧🌐💻
 
-- **Email**: [your.email@example.com](mailto:your.email@example.com)
-- **LinkedIn**: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-- **GitHub**: [github.com/yourusername](https://github.com/yourusername)
+- **Email**: [leogadil04@gmail.com](mailto:leogadil04@gmail.com)
+- **LinkedIn**: [linkedin.com/in/leogadil](https://linkedin.com/in/leogadil)
+- **GitHub**: [github.com/yourusername](https://github.com/LeoooooGadil)
 
 ---
 
-Thank you for visiting **LeoGadilDotCom**! I hope you enjoy exploring my portfolio. 🙏🌟🎉
+Thank you for visiting **LeoGadil.Com**! I hope you enjoy exploring my portfolio. 🙏🌟🎉
 
