@@ -4,10 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { IconType } from 'react-icons';
 
-import { RiAdminFill } from "react-icons/ri";
 import { RiLogoutBoxRFill } from "react-icons/ri";
-import { RiProjectorFill } from "react-icons/ri";
-import { RiPencilFill } from "react-icons/ri";
 
 const tabs = [
 	{

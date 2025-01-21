@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import Navigation from "./components/navigation/navigation";
-import FooterComponent from "@/app/(public)/components/footer/footercomponent";
+import FooterComponent from "@/app/components/footer/footercomponent";
 
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function AdminLayout({
 			</div>
 			{children}
 			<div>
-				{/* <FooterComponent /> */}
+				<FooterComponent />
 			</div>
 		</div>
 	);

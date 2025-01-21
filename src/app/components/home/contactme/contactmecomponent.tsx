@@ -26,7 +26,7 @@ const ContactMeComponent = () => {
 
 
 					<div className="z-30">
-						<p className='text-center lg:text-left text-xl font-normal text-[--color-dark]'>
+						<p className='text-center lg:text-left text-md lg:text-xl font-normal text-[--color-dark]'>
 							Pop me an email at <a href='mailto:leogadil04@gmail.com' className='text-[--color-accent] font-semibold'>
 								leogadil04@gmail.com
 							</a> <br />or connect with me on social media.
@@ -34,7 +34,7 @@ const ContactMeComponent = () => {
 
 						<div className="mt-24"></div>
 
-						{/* <div className="mt-24 flex justify-center lg:justify-end w-full">
+						<div className="mt-24 flex justify-center lg:justify-end w-full block lg:hidden">
 							<div className='flex space-x-1'>
 								<a href='https://www.facebook.com/jannleogadil' aria-label='Fac ebook' target='_blank' rel='noreferrer noopener' className='flex items-center justify-center h-10 w-10 rounded-3xl'>
 									<FaFacebookF className='text-[--color-accent]' size={20} />
@@ -52,7 +52,7 @@ const ContactMeComponent = () => {
 									<FaYoutube className='text-[--color-accent]' size={24} />
 								</a>
 							</div>
-						</div> */}
+						</div>
 					</div>
 				</div>
 			</div>

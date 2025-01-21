@@ -22,6 +22,8 @@ import Superscript from "@tiptap/extension-superscript";
 import History from "@tiptap/extension-history";
 import Image from '@tiptap/extension-image'
 import AutoJoiner from 'tiptap-extension-auto-joiner'
+import CharacterCount from '@tiptap/extension-character-count'
+
 
 export const extensions = [
   Document,
@@ -53,5 +55,6 @@ export const extensions = [
     depth: 10,
   }),
   AutoJoiner,
-  Image
+  Image,
+  CharacterCount
 ];

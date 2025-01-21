@@ -2,7 +2,7 @@
 
 import React, { useState, JSX } from "react";
 
-import RightTabTreeComponent from "./component/righttabtree/righttabtreecomponent";
+import RightTabTreeComponent from "@/admin/components/righttabtree/righttabtreecomponent";
 import GeneralSettingsComponent from "./pages/generalsettings";
 import AddAProjectComponent from "./pages/addaproject";
 

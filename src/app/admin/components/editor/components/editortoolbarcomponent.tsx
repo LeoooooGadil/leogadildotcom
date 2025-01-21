@@ -20,100 +20,114 @@ interface EditorToolBarProps {
 
 const EditorToolBarComponent = ({ editor }: EditorToolBarProps) => {
   return (
-    <div className="flex flex-wrap gap-2 w-full justify-center lg:justify-start">
-      <div className={`flex justify-between gap-1 bg-[--color-dark-accent] items-center h-11 px-2 rounded-xl drop-shadow-lg ${editor === null ? "opacity-25" : ""}`}>
+    <div className="px-4 flex flex-wrap gap-2 w-full justify-center lg:justify-start">
+      <div
+        className={`flex justify-between gap-1 bg-[--color-dark-accent] items-center h-11 px-2 rounded-xl drop-shadow-lg ${
+          editor === null ? "opacity-25" : ""
+        }`}
+      >
         <SmallButton
           name="Bold"
           Icon={GoBold}
           active={editor?.isActive("bold")}
-          onClick={() => editor.chain().focus().toggleBold().run()}
+          onClick={() => editor?.chain().focus().toggleBold().run()}
           isDisabled={editor === null}
         />
         <SmallButton
           name="Italic"
           Icon={GoItalic}
           active={editor?.isActive("italic")}
-          onClick={() => editor.chain().focus().toggleItalic().run()}
+          onClick={() => editor?.chain().focus().toggleItalic().run()}
           isDisabled={editor === null}
         />
         <SmallButton
           name="Underline"
           Icon={AiOutlineUnderline}
           active={editor?.isActive("underline")}
-          onClick={() => editor.chain().focus().toggleUnderline().run()}
+          onClick={() => editor?.chain().focus().toggleUnderline().run()}
           isDisabled={editor === null}
         />
         <SmallButton
           name="Strike"
           Icon={GoStrikethrough}
           active={editor?.isActive("strike")}
-          onClick={() => editor.chain().focus().toggleStrike().run()}
+          onClick={() => editor?.chain().focus().toggleStrike().run()}
           isDisabled={editor === null}
         />
       </div>
-      <div className="flex gap-2 h-11">
-        <Button
-          name="Code"
-          Icon={TbCode}
-          active={editor?.isActive("code")}
-          onClick={() => editor.chain().focus().toggleCode().run()}
-          isDisabled={editor === null}
-        />
-        <Button
-          name="Code Block"
-          Icon={PiCodeBlock}
-          active={editor?.isActive("codeBlock")}
-          onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-          isDisabled={editor === null}
-        />
-        <Button
-          name="Blockquote"
-          Icon={MdFormatQuote}
-          active={editor?.isActive("blockquote")}
-          onClick={() => editor.chain().focus().toggleBlockquote().run()}
-          isDisabled={editor === null}
-        />
-      </div>
-      <div className="flex gap-2 h-11">
-        <Button
-          name="Bullet List"
-          Icon={MdFormatListBulleted}
-          active={editor?.isActive("bulletList")}
-          onClick={() => editor.chain().focus().toggleBulletList().run()}
-          isDisabled={editor === null}
-        />
-        <Button
-          name="Order List"
-          Icon={MdFormatListNumbered}
-          active={editor?.isActive("orderedList")}
-          onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          isDisabled={editor === null}
-        />
-      </div>
-      <div className={`flex gap-1 bg-[--color-dark-accent] items-center h-11 px-2 rounded-xl drop-shadow-lg ${editor === null ? "opacity-25" : ""}`}>
+      <Button
+        name="Code"
+        Icon={TbCode}
+        active={editor?.isActive("code")}
+        onClick={() => editor?.chain().focus().toggleCode().run()}
+        isDisabled={editor === null}
+      />
+      <Button
+        name="Code Block"
+        Icon={PiCodeBlock}
+        active={editor?.isActive("codeBlock")}
+        onClick={() => editor?.chain().focus().toggleCodeBlock().run()}
+        isDisabled={editor === null}
+      />
+      <Button
+        name="Blockquote"
+        Icon={MdFormatQuote}
+        active={editor?.isActive("blockquote")}
+        onClick={() => editor?.chain().focus().toggleBlockquote().run()}
+        isDisabled={editor === null}
+      />
+      <Button
+        name="Bullet List"
+        Icon={MdFormatListBulleted}
+        active={editor?.isActive("bulletList")}
+        onClick={() => editor?.chain().focus().toggleBulletList().run()}
+        isDisabled={editor === null}
+      />
+      <Button
+        name="Order List"
+        Icon={MdFormatListNumbered}
+        active={editor?.isActive("orderedList")}
+        onClick={() => editor?.chain().focus().toggleOrderedList().run()}
+        isDisabled={editor === null}
+      />
+      <div
+        className={`flex gap-1 bg-[--color-dark-accent] items-center h-11 px-2 rounded-xl drop-shadow-lg ${
+          editor === null ? "opacity-25" : ""
+        }`}
+      >
         <SmallButton
           name="H1"
           Icon={LuHeading1}
           active={editor?.isActive("heading", { level: 1 })}
-          onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
+          onClick={() =>
+            editor?.chain().focus().toggleHeading({ level: 1 }).run()
+          }
           isDisabled={editor === null}
         />
         <SmallButton
           name="H2"
           Icon={LuHeading2}
           active={editor?.isActive("heading", { level: 2 })}
-          onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+          onClick={() =>
+            editor?.chain().focus().toggleHeading({ level: 2 }).run()
+          }
           isDisabled={editor === null}
         />
         <SmallButton
           name="H3"
           Icon={LuHeading3}
           active={editor?.isActive("heading", { level: 3 })}
-          onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
+          onClick={() =>
+            editor?.chain().focus().toggleHeading({ level: 3 }).run()
+          }
           isDisabled={editor === null}
         />
       </div>
-      <div className={`flex gap-1 bg-[--color-dark-accent] items-center h-11 px-2 rounded-xl drop-shadow-lg ${editor === null ? "opacity-25" : ""}`}>
+      <div
+        className={`flex gap-1 bg-[--color-dark-accent] items-center h-11 px-2 rounded-xl drop-shadow-lg ${
+          editor === null ? "opacity-25" : ""
+        }`}
+      >
         <SmallButton
           name="Undo"
           Icon={MdOutlineUndo}
@@ -137,7 +151,7 @@ interface ButtonProps {
   isDisabled?: boolean;
   name: string;
   Icon?: IconType;
-  active: boolean;
+  active: boolean | undefined;
   onClick: () => void;
 }
 
@@ -158,12 +172,18 @@ const Button = ({ name, Icon, active, onClick, isDisabled }: ButtonProps) => {
   );
 };
 
-const SmallButton = ({ name, Icon, active, onClick, isDisabled }: ButtonProps) => {
+const SmallButton = ({
+  name,
+  Icon,
+  active,
+  onClick,
+  isDisabled,
+}: ButtonProps) => {
   return (
     <button
       className={`${
         active
-          ? "bg-[--color-primary]"
+          ? "bg-[--color-primary] hover:bg-[--color-primary-hover]"
           : "bg-[--color-dark-accent] hover:bg-[--color-dark-accent-1]"
       } hover:brightness-80 transition-all text-white h-8 px-2 w-max rounded-lg flex items-center justify-center`}
       disabled={isDisabled}

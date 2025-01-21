@@ -9,7 +9,7 @@ import { FaYoutube } from "react-icons/fa";
 
 const ProfileComponent = () => {
 	return (
-		<div className='px-14 mt-8 lg:mt-14 w-full lg:w-max sticky top-20'>
+		<div className='px-4 lg:px-14 mt-8 lg:mt-14 w-full lg:w-max sticky top-20'>
 			<div className='relative overflow-hidden flex flex-col items-center bg-[--color-light] py-4 px-10 lg:px-4 rounded-2xl drop-shadow-lg w-full max-w-[576px] lg:w-72 mx-auto'>
 
 				<div className="w-96 h-96 -left-24 -top-24 lg:-top-24 absolute opacity-60 border-dashed border-4 border-[--color-primary] [border-radius:58%_42%_66%_34%/30%_30%_70%_70%]"></div>

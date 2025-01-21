@@ -1,6 +1,4 @@
-import react from "react";
-import SettingsTitleComponent from "../component/settings/settingstitlecomponent";
-import SettingsSectionComponent from "../component/settings/settingssectioncomponent";
+import SettingsTitleComponent from "@/admin/components/settings/settingstitlecomponent";
 
 const GeneralSettingsComponent  = () => {
     return (

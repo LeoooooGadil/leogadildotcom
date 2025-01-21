@@ -94,7 +94,7 @@ const ProjectCard = ({ title, description, techStack, picturecolor, link }: Proj
 				/>
 			</div>
 
-			<div>
+			<div className="mb-2">
 				<h1 className='text-2xl font-bold'>{title}</h1>
 				<p className='opacity-70 text-sm'>{description}</p>
 				<div className='flex flex-wrap gap-2 pt-4 space-x-6'>
@@ -112,7 +112,7 @@ const TechStack = ({ techStack }: { techStack: string[] }) => {
 				<div key={index} className='flex items-center gap-6'>
 					<div className='flex items-center gap-2'>
 						<TechIcon iconName={tech} size={20} />
-						<span className='text-sm opacity-70'>{tech}</span>
+						<span className='text-sm opacity-70 hidden lg:block'>{tech}</span>
 					</div>
 				</div>
 			))}

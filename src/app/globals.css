@@ -18,6 +18,7 @@
 
 
 :root {
+  --color-primary-hover: #049980;
   --color-primary: #008670;
   --color-secondary: #5F6DC7;
   --color-accent: #FFA500;

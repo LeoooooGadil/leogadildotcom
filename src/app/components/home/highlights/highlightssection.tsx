@@ -4,7 +4,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 const HighlightsSectionComponent = () => {
 	return (
-		<div className="px-14 lg:px-0 my-12">
+		<div className="px-4 lg:px-0 my-12">
 			<div className="flex flex-col md:flex-row md:justify-center space-y-6 md:space-y-0 md:gap-6">
 				<HighlightComponent type="blog" title="Spaceverse" description=" How I reversed engineered an app to fit my needs" link="https://spvr.app/" color='--color-secondary' />
 				<HighlightComponent type="project" title="Medstore" description="an online pharmacy" link="https://spvr.app/" color='--color-primary' />

@@ -1,9 +1,10 @@
 import { supabase } from "@/app/utils/supabase";
+import { GenerateRandomFilename } from "@/app/utils/helpers";
 
 const UploadImage = async (file: File) => {
   try {
     const bucket = "leogadildotcom-image-bucket";
-    const filename = generateRandomFilename();
+    const filename = GenerateRandomFilename();
     const filePath = `uploads/${Date.now()}_${filename}`;
 
     // Upload file to Supabase
@@ -25,16 +26,6 @@ const UploadImage = async (file: File) => {
     console.error("Error uploading image:", error);
     throw error;
   }
-};
-
-const generateRandomFilename = (length = 16) => {
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  let result = "";
-  for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return result;
 };
 
 export default UploadImage;
