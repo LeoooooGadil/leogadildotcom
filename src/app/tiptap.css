@@ -1,0 +1,150 @@
+/* General styling for the editor */
+.editor {
+  font-size: 16px;
+  line-height: 1;
+  padding: 5px 10px;
+  border-radius: 12px;
+  outline: none;
+  margin: 12px 0;
+  min-height: 500px;
+}
+
+/* Paragraph styling */
+.editor p {
+  margin: 10px 0;
+  padding: 5px 0;
+  font-size: 16px;
+  color: var(--color-light);
+  line-height: 1.4;
+  opacity: 0.8; /* Adjust opacity for simple text */
+}
+
+/* Styling for headings */
+.editor h1,
+.editor h2,
+.editor h3 {
+  margin: 30px 0px 10px;
+  font-weight: bold;
+  color: var(--color-light);
+}
+
+.editor h1 {
+  font-size: 2.5rem;
+}
+
+.editor h2 {
+  font-size: 2rem;
+}
+
+.editor h3 {
+  font-size: 1.75rem;
+}
+
+/* Text formatting */
+.editor strong {
+  font-weight: bold;
+}
+
+.editor em {
+  font-style: italic;
+}
+
+.editor u {
+  text-decoration: underline;
+}
+
+.editor del {
+  text-decoration: line-through;
+}
+
+.editor code {
+  font-family: "Courier New", Courier, monospace;
+  background-color: var(--color-dark-accent);
+  padding: 4px 14px;
+  border-radius: 8px;
+  line-height: 1.7;
+  margin: 0 4px; /* Added margin on x-axis */
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
+    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
+
+.editor pre {
+  background-color: var(--color-dark-accent);
+  padding: 15px;
+  border-radius: 12px;
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 30px 2px; /* Added margin on x-axis */
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
+    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
+
+/* Blockquote */
+.editor blockquote {
+  margin: 20px 0px;
+  padding: 0px 10px;
+  border-left: 5px solid var(--color-accent); /* Changed to a different color */
+  font-style: italic;
+  color: var(--color-accent); /* Updated blockquote color */
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
+    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
+
+/* Lists */
+.editor ul {
+  padding-left: 50px;
+}
+
+.editor ul li {
+  list-style-type: disc;
+}
+
+.editor ol {
+  padding-left: 50px;
+}
+
+.editor ol li {
+  list-style-type: decimal; /* Corrected to show numbers */
+}
+
+/* Links */
+.editor a {
+  color: var(--color-accent);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.editor a:hover {
+  text-decoration: underline;
+}
+
+/* Placeholder */
+.tiptap p.is-editor-empty:first-child::before {
+  color: var(--color-light);
+  content: attr(data-placeholder);
+  float: left;
+  opacity: 0.8;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Highlight text */
+.editor mark {
+  background-color: var(
+    --color-accent
+  ); /* Pastel yellow color for highlighted text */
+  padding: 0px 8px;
+  line-height: 1.7;
+}
+
+/* Image styling */
+.editor img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
+    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
