@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import Navigation from "@/app/components/navigation/navigation";
-import FooterComponent from "@/app/components/footer/footercomponent";
+import FooterComponent from "@/app/components/Footer";
 
 export const metadata: Metadata = {
 	title: "Administrator",

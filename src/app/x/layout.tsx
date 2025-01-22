@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import "../globals.css";
-import Navigation from "@/app/components/navigation/navigation";
+import Navigation from "./components/navigation/navigation";
 import FooterComponent from "@/app/components/Footer";
 
-export default function PublicLayout({
+
+export const metadata: Metadata = {
+	title: "Administrator",
+	description: "Admin Page for the portfolio of Leo Gadil",
+};
+
+export default function AdminLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;

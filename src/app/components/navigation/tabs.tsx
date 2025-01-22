@@ -30,7 +30,7 @@ const tabs = [
   },
   {
     name: "Admin",
-    link: "/admin",
+    link: "/x",
     icon: RiAdminFill,
     isLocal: true,
   },
@@ -58,8 +58,8 @@ const Tabs = () => {
   };
 
   return (
-    <div className="p-2 px-10">
-      <ul className="flex items-center space-x-8 px-2">
+    <div className="w-full">
+      <ul className="flex items-center justify-center gap-10">
         {tabs.map((tab, index) =>
           // Check if the tab is local and skip rendering it
           !isLocal && !tab.isLocal ? (
@@ -106,11 +106,9 @@ const Tab: React.FC<TabProps> = ({
             e.preventDefault();
             handleTabChange && handleTabChange(name);
           }}
-          className={`hover:text-[--color-accent] transition-colors ${
-            active ? "active-tab" : ""
-          }`}
+          className={`hover:text-[--color-accent] transition-colors`}
         >
-          <Icon size={28} />
+          <Icon size={24} />
         </a>
       </div>
     </li>

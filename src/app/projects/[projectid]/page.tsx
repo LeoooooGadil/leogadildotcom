@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react";
-import ProfileComponent from "@/app/components/home/landing/profilecomponent";
+import ProfileComponent from "@/app/components/ProfileCard";
 import { useParams } from "next/navigation";
 
 const ProjectPage = () => {

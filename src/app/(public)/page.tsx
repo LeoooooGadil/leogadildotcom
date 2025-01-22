@@ -1,13 +1,13 @@
-import ProfileComponent from "@/app/components/home/landing/profilecomponent";
-import LandingTextComponent from "@/app/components/home/landing/landingtextcomponent";
-import HighlightTechStack from "@/app/components/home/highlights/highlighttechstack";
-import HighlightsSectionComponent from "@/app/components/home/highlights/highlightssection";
-import RecentProjectComponent from "@/app/components/home/recentprojects/recentprojectscomponent";
-import SelfThoughtComponent from "@/app/components/home/boasts/selfthoughtcomponent";
-import ToolsComponent from "@/app/components/home/boasts/toolscomponent";
-import FeaturedBlogPostComponent from "@/app/components/home/featuredblog/featureblogpostcomponent";
-import ContactMeComponent from "@/app/components/home/contactme/contactmecomponent";
-import ImGladToSeeYouHereComponent from "@/app/components/general/imgladtoseeyouherecomponent";
+import ProfileComponent from "@/components/ProfileCard";
+import LandingTextComponent from "@/components/LandingHero";
+import HighlightTechStack from "@/components/HighlightTechStack";
+import HighlightsSectionComponent from "@/components/section/HighlightCardSection";
+import RecentProjectComponent from "@/components/section/ProjectsSection";
+import SelfThoughtComponent from "@/components/section/SelfTaughtSection";
+import ToolsComponent from "@/components/section/ToolsSection";
+import FeaturedBlogPostComponent from "@/components/section/FeaturedBlogSection";
+import ContactMeComponent from "@/components/section/ContactMeSection";
+import ImGladToSeeYouHereComponent from "@/components/SpecialText";
 
 export default function Home() {
 	return (
@@ -24,7 +24,7 @@ export default function Home() {
 				<ImGladToSeeYouHereComponent />
 				<RecentProjectComponent />
 				<SelfThoughtComponent />
-				{/* <ToolsComponent /> */}
+				<ToolsComponent />
 				<FeaturedBlogPostComponent />
 				<ContactMeComponent />
 			</div>

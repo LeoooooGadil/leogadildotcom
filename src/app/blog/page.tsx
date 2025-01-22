@@ -1,6 +1,6 @@
-import ProfileComponent from "@/app/components/home/landing/profilecomponent";
-import BlogListComponent from "@/app/blog/component/bloglist/bloglistcomponent";
-import ContactMeComponent from "@/app/components/home/contactme/contactmecomponent";
+import ProfileComponent from "@/app/components/ProfileCard";
+import BlogListComponent from "@/app/components/BlogsPageList";
+import ContactMeComponent from "@/app/components/section/ContactMeSection";
 
 const Blog = () => {
 	return (
