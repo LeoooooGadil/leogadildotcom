@@ -1,0 +1,85 @@
+/* Syntax highlighting for common code elements in all languages */
+.editor .hljs,
+.viewer .hljs {
+  color: #f8f8f2;
+}
+
+/* Keywords */
+.editor .hljs-keyword,
+.viewer .hljs-keyword {
+  color: #ff79c6; /* Purple */
+  font-weight: bold;
+}
+
+/* Strings */
+.editor .hljs-string,
+.viewer .hljs-string {
+  color: #f1fa8c; /* Yellow */
+}
+
+/* Numbers */
+.editor .hljs-number,
+.viewer .hljs-number {
+  color: #bd93f9; /* Light Purple */
+}
+
+/* Functions */
+.editor .hljs-function,
+.viewer .hljs-function {
+  color: #50fa7b; /* Green */
+}
+
+/* Variables */
+.editor .hljs-variable,
+.viewer .hljs-variable {
+  color: #8be9fd; /* Light Cyan */
+}
+
+/* Comments */
+.editor .hljs-comment,
+.viewer .hljs-comment {
+  color: #6272a4; /* Light Blue */
+}
+
+/* Types (like 'int', 'float', etc.) */
+.editor .hljs-type,
+.viewer .hljs-type {
+  color: #ffb86c; /* Peach */
+}
+
+/* Constants */
+.editor .hljs-constant,
+.viewer .hljs-constant {
+  color: #ff79c6; /* Purple */
+}
+
+/* Links */
+.editor .hljs-link,
+.viewer .hljs-link {
+  color: #8be9fd; /* Light Cyan */
+}
+
+/* Tag names (e.g., in HTML) */
+.editor .hljs-tag,
+.viewer .hljs-tag {
+  color: #ffb86c; /* Peach */
+}
+
+/* If you want language-specific overrides, you can target each language like this: */
+
+/* Example for Python */
+.editor .language-python .hljs-keyword,
+.viewer .language-python .hljs-keyword {
+  color: #ff79c6; /* Purple */
+}
+
+/* Example for HTML */
+.editor .language-html .hljs-tag,
+.viewer .language-html .hljs-tag {
+  color: #ffb86c; /* Peach for HTML tags */
+}
+
+.editor .language-html .hljs-attribute,
+.viewer .language-html .hljs-attribute {
+  color: #50fa7b; /* Green for HTML attributes */
+}

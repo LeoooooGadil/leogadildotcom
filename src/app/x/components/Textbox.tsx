@@ -28,18 +28,20 @@ const Texbox = ({
   }, [_value]);
 
   return (
-    <div>
-      <p className="text-sm text-left lg:text-left opacity-80 mb-2 ml-2 italic opacity-50">
-        {helpertext}
-      </p>
-      <input
-        className="bg-[--color-dark-accent] p-3 px-8 lg:px-8 rounded-2xl drop-shadow-lg max-w-[576px] lg:max-w-none mx-auto lg:mx-0 w-full"
-        type="text"
-        placeholder={placeholder}
-        value={_value}
-        onChange={_onChange}
-        name={name}
-      />
+    <div className="flex flex-col justify-center">
+      <div className="max-w-[576px] mx-auto lg:mx-0 w-full">
+        <p className="text-sm text-left lg:text-left opacity-80 mb-2 ml-2 italic opacity-50">
+          {helpertext}
+        </p>
+        <input
+          className="bg-[--color-dark-accent] p-3 px-5 rounded-xl drop-shadow-lg max-w-[576px] lg:max-w-none mx-auto lg:mx-0 w-full"
+          type="text"
+          placeholder={placeholder}
+          value={_value}
+          onChange={_onChange}
+          name={name}
+        />
+      </div>
     </div>
   );
 };

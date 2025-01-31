@@ -1,16 +1,14 @@
+"use client";
+
 import { useEditor } from "@tiptap/react";
 
-import { extensions } from "@/app/x/components/editor/components/editorextensions";
-import content_showcase from "@/app/x/components/editor/components/contentshowcase";
-import DropHandler from "@/app/x/components/editor/handler/handledrop";
-
-// this is the editor instance this returns the editor instance
+import { extensions } from "@/components/editor/components/editorextensions";
+import DropHandler from "@/components/editor/handler/handledrop";
 
 const TipTapEditor = () => {
-
   const tiptap = useEditor({
     extensions: [...extensions],
-    content: content_showcase,
+    content: "",
     editorProps: {
       handleDrop: DropHandler,
       attributes: {

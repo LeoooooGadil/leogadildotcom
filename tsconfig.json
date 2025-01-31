@@ -20,9 +20,12 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+
+      "@/contexts/*": ["./src/app/contexts/*"],
+      "@/services/*": ["./src/app/services/*"],
+      "@/utils/*": ["./src/app/utils/*"],
       "@/admin/*": ["./src/app/x/*"],
       "@/assets/*": ["./src/assets/*"],
-
       "@/components/*": ["./src/app/components/*", "./src/app/x/components/*"],
     }
   },

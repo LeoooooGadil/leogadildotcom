@@ -20,10 +20,12 @@ import Italic from "@tiptap/extension-italic";
 import Subscript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
 import History from "@tiptap/extension-history";
-import Image from '@tiptap/extension-image'
-import AutoJoiner from 'tiptap-extension-auto-joiner'
-import CharacterCount from '@tiptap/extension-character-count'
-
+import Image from '@tiptap/extension-image';
+import AutoJoiner from 'tiptap-extension-auto-joiner';
+import CharacterCount from '@tiptap/extension-character-count';
+import TextAlign from '@tiptap/extension-text-align'
+import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
+import { common, createLowlight } from 'lowlight'
 
 export const extensions = [
   Document,
@@ -33,8 +35,10 @@ export const extensions = [
   OrderedList,
   ListItem,
   Blockquote,
-  CodeBlock,
-  Youtube,
+  Youtube.configure({
+    inline: false,
+    modestBranding: false,
+  }),
   Dropcursor,
   Underline,
   Strike,
@@ -48,13 +52,17 @@ export const extensions = [
   Placeholder.configure({
     placeholder: "Start typing here...",
   }),
-  Heading.configure({
-    levels: [1, 2, 3],
-  }),
+  Heading,
   History.configure({
     depth: 10,
   }),
   AutoJoiner,
   Image,
-  CharacterCount
+  CharacterCount,
+  TextAlign.configure({
+    types: ['heading', 'paragraph'],
+  }),
+  CodeBlockLowlight.configure({
+    lowlight: createLowlight(common),
+  }),
 ];

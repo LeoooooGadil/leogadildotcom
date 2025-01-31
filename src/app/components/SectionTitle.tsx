@@ -8,10 +8,10 @@ interface SectionTitleComponentProps {
 const SectionTitleComponent = ({ title, subtitle }: SectionTitleComponentProps) => {
 	return (
 		<div className='text-center md:flex md:justify-center md:space-x-4 lg:flex-col lg:justify-start lg:text-left lg:space-x-0'>
-			<h1 className='text-5xl font-bold lg:text-6xl uppercase'>
+			<h1 className='text-5xl md:text-5xl lg:text-6xl font-bold  uppercase'>
 				{title}
 			</h1>
-			<h1 className='text-5xl lg:text-6xl font-bold text-[--color-dark-accent-2] drop-shadow-lg uppercase'>
+			<h1 className='text-5xl md:text-5xl lg:text-6xl font-bold text-[--color-dark-accent-2] drop-shadow-lg uppercase'>
 				{subtitle}
 			</h1>
 		</div>

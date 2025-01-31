@@ -4,8 +4,8 @@ import Navigation from "@/app/components/navigation/navigation";
 import FooterComponent from "@/app/components/Footer";
 
 export const metadata: Metadata = {
-	title: "Administrator",
-	description: "Administrator Page for the portfolio of Leo Gadil",
+	title: "Leo Gadil",
+	description: "A passionate software developer based in Manila, Philippines",
 };
 
 export default function PublicLayout({
@@ -14,7 +14,7 @@ export default function PublicLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<div className={`mx-auto max-w-screen-lg`}>
+		<div className={`mx-auto max-w-screen-xl`}>
 			<div className="w-full flex justify-center">
 				<Navigation />
 			</div>

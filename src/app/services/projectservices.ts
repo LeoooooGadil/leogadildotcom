@@ -1,47 +1,120 @@
-import { supabase } from "@/app/utils/supabase";
-import { GenerateRandomFilename } from "@/app/utils/helpers";
+import { supabase } from "@/utils/supabase";
+import { ValidateNewProject } from "@/utils/validators";
+import { CreateNewMDX } from "./mdxservices";
+import moment from "moment";
+import { TechIconType } from "@/components/TechStack";
 
-type ProjectDataTechStack = {
+export type ProjectNewData = {
   name: string;
-  icon: string;
-};
-
-type ProjectData = {
-  name: string;
+  slug: string;
   subtitle: string;
   description: string;
-  image: string;
-  techstack: ProjectDataTechStack[];
-  mdx_id: string;
+  image: string | null;
+  keywords: string[];
+  techstack: TechIconType[];
 };
 
-const CreateNewProject = async (projectData: ProjectData) => {
+export type ProjectDB = {
+  id: string;
+  name: string;
+  slug: string;
+  subtitle: string;
+  description: string;
+  image: string | null;
+  keywords: string[];
+  techstack: TechIconType[];
+  mdx_id: string;
+  create_date: Date;
+  update_date: Date;
+};
+
+const CreateNewProject = async (projectData: ProjectNewData) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const { data, error } = await supabase.from("projects").insert([
-        {
-          id: GenerateRandomFilename(),
-          name: projectData.name,
-          subtitle: projectData.subtitle,
-          description: projectData.description,
-          image: projectData.image,
-          techstack: projectData.techstack,
-          mdx: projectData.mdx_id,
-					create_date: new Date(),
-					update_date: new Date(),
-        },
-      ]);
+
+      const _mdxData = {
+        type: "project",
+        title: projectData.name,
+        subtitle: projectData.subtitle,
+        image: projectData.image,
+        keywords: projectData.keywords,
+        readtime: 0,
+        content: "",
+      };
+
+      console.log(_mdxData);
+
+      const mdxResponse = await CreateNewMDX(_mdxData) as { data: any };
+      
+      if (!mdxResponse.data || !mdxResponse.data[0]?.id) {
+        throw new Error("Failed to create MDX. Invalid response data.");
+      }
+
+      const _projectData = {
+        name: projectData.name,
+        slug: projectData.name.toLowerCase().replace(/\s+/g, '-'),
+        subtitle: projectData.subtitle,
+        description: projectData.description,
+        image: projectData.image,
+        keywords: projectData.keywords,
+        techstack: projectData.techstack,
+        mdx_id: mdxResponse.data[0].id,
+        create_date: moment().format(),
+        update_date: moment().format(),
+      }
+
+      console.log(_projectData);
+
+      const validation = ValidateNewProject({ json: _projectData});
+      if(!validation.valid) throw new Error(`Error: ${validation.errors}`);
+
+      const { data, error } = await supabase.from("projects").insert(_projectData).select();
 
       if (error) {
         throw new Error(`Insert failed: ${error.message}`);
       }
 
-      resolve({ data });
+      resolve(data);
     } catch (error) {
-      console.error("Error inserting new project:", error);
       reject(error);
     }
   });
 };
 
-export { CreateNewProject };
+const SelectProject = async (projectid: string) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const { data, error } = await supabase.from("project").select().eq("id", projectid);
+
+      if(error) {
+        console.error("SelectProject Error: ", error);
+        throw new Error(`Select failed: ${error.message}`);
+      }
+
+      console.log("SelectProject Response Data: ", data);
+      resolve({ data })
+    } catch(error) {
+      reject(error);
+    }
+  });
+}
+
+const GetAllProjects = async () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const { data, error } = await supabase.from("projects").select();
+
+      if (error) {
+        console.error("GetAllProjects Error: ", error);
+        throw new Error(`Failed to fetch projects: ${error.message}`);
+      }
+
+      console.log("GetAllProjects Response Data: ", data);
+      resolve({ data });
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
+export { CreateNewProject, SelectProject, GetAllProjects };
