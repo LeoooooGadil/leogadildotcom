@@ -8,11 +8,12 @@ interface TipTapViewerProps {
   content: string;
 }
 
-const TipTapViewer = ({ content }: TipTapViewerProps) => {
+const useTipTapViewer = ({ content }: TipTapViewerProps) => {
   const viewer = useEditor({
     extensions: [...extensions],
     content: content,
     editable: false,
+    immediatelyRender: false,
     editorProps: {
       attributes: {
         class: "viewer",
@@ -24,4 +25,4 @@ const TipTapViewer = ({ content }: TipTapViewerProps) => {
 };
 
 
-export default TipTapViewer;
+export default useTipTapViewer;

@@ -63,8 +63,6 @@ const CreateNewProject = async (projectData: ProjectNewData) => {
         update_date: moment().format(),
       }
 
-      console.log(_projectData);
-
       const validation = ValidateNewProject({ json: _projectData});
       if(!validation.valid) throw new Error(`Error: ${validation.errors}`);
 
@@ -87,11 +85,9 @@ const SelectProject = async (projectid: string) => {
       const { data, error } = await supabase.from("project").select().eq("id", projectid);
 
       if(error) {
-        console.error("SelectProject Error: ", error);
         throw new Error(`Select failed: ${error.message}`);
       }
 
-      console.log("SelectProject Response Data: ", data);
       resolve({ data })
     } catch(error) {
       reject(error);
@@ -105,11 +101,9 @@ const GetAllProjects = async () => {
       const { data, error } = await supabase.from("projects").select();
 
       if (error) {
-        console.error("GetAllProjects Error: ", error);
         throw new Error(`Failed to fetch projects: ${error.message}`);
       }
 
-      console.log("GetAllProjects Response Data: ", data);
       resolve({ data });
     } catch (error) {
       reject(error);

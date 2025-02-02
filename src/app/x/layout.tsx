@@ -17,12 +17,10 @@ export default function AdminLayout({
   return (
     <EditorContextProvider>
       <div className={`mx-auto max-w-screen-xl overflow-hidden`}>
-        <div className="w-full flex justify-center">
-          <Navigation />
-        </div>
-        {children}
-        <div>
-          <FooterComponent />
+        <div className="relative">{children}
+          <div>
+            <FooterComponent />
+          </div>
         </div>
       </div>
     </EditorContextProvider>

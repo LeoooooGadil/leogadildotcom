@@ -32,7 +32,7 @@ export default function MDXContextProvider({
         setMdxList(data?.data || []); // Set the MDX list with the fetched data
       })
       .catch((error) => {
-        console.error("Error fetching MDX data:", error);
+        throw new Error("Error getting all the MDX data");
       });
   };
 

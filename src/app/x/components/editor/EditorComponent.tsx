@@ -39,35 +39,30 @@ const EditorComponent = ({ editor }: EditorComponentProps) => {
 
   return (
     <div className="relative mx-auto px-4 lg:px-0 max-w-[576px] lg:mx-0">
-      {/* Sticky Toolbar */}
-      <div className="sticky top-0 z-50 shadow-md">
-        <EditorToolbarComponent editor={editor} />
-      </div>
-
       {editor === null ? (
-        <div className="h-[524px] flex justify-center items-center">
+        <div className="h-[524px] max-w-[576px] w-full flex justify-center items-center">
           <Spinner />
         </div>
       ) : (
         <div className="mt-2">
           <EditorContent editor={editor} />
+
+          {/* Border */}
+          <div className="border-b-2 border-[--color-dark-accent]"></div>
+          <div className="flex justify-between mb-80 text-sm mt-1">
+            <h1 className="opacity-50">
+              {editor === null
+                ? "Loading..."
+                : `${editor.storage.characterCount.characters()} characters`}
+            </h1>
+            <h1 className="opacity-50">
+              {editor === null
+                ? "Loading..."
+                : `${editor.storage.characterCount.words()} words`}
+            </h1>
+          </div>
         </div>
       )}
-
-      {/* Border */}
-      <div className="border-b-2 border-[--color-dark-accent]"></div>
-      <div className="flex justify-between mb-80 text-sm mt-1">
-        <h1 className="opacity-50">
-          {editor === null
-            ? "Loading..."
-            : `${editor.storage.characterCount.characters()} characters`}
-        </h1>
-        <h1 className="opacity-50">
-          {editor === null
-            ? "Loading..."
-            : `${editor.storage.characterCount.words()} words`}
-        </h1>
-      </div>
     </div>
   );
 };

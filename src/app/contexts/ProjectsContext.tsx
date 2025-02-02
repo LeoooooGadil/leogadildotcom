@@ -40,7 +40,7 @@ export default function ProjectsContextProvider({
       setProjects(data.data)
     })
     .catch((error) => {
-      console.error(error)
+      throw new Error("Error getting all the Projects.")
     })
   }
 

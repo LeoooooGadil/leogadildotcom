@@ -1,4 +1,5 @@
 import { JSX } from "react";
+import * as motion from "motion/react-client";
 
 import {
   SiTypescript,
@@ -49,27 +50,27 @@ export interface TechIconProps {
 const TechIcon = ({ iconName, size }: TechIconProps): JSX.Element => {
   switch (iconName) {
     case "Typescript":
-      return <SiTypescript size={size} className="text-[#007ACC]" />;
+      return <SiTypescript size={size} />;
     case "Javascript":
-      return <SiJavascript size={size} className="text-[#F0DB4F]"/>;
+      return <SiJavascript size={size} />;
     case "Python":
       return <SiPython size={size} />;
     case "React":
-      return <SiReact size={size} className="text-[#1C84BC]" />;
+      return <SiReact size={size} />;
     case "TailwindCSS":
-      return <SiTailwindcss size={size} className="text-[#49c0f7]" />;
+      return <SiTailwindcss size={size} />;
     case "Firebase":
-      return <SiFirebase size={size} className="text-[#FFA611]" />;
+      return <SiFirebase size={size} />;
     case "MongoDB":
-      return <SiMongodb size={size} className="text-[#F0DB4F]" />;
+      return <SiMongodb size={size} />;
     case "Unity":
-      return <SiUnity size={size} className="text-[#F0DB4F]" />;
+      return <SiUnity size={size} />;
     case "Photoshop":
-      return <SiAdobephotoshop size={size} className="text-[#8BC3FC]" />;
+      return <SiAdobephotoshop size={size} />;
     case "Premiere":
-      return <SiAdobepremierepro size={size} className="text-[#231E72]" />;
+      return <SiAdobepremierepro size={size} />;
     case "After Effects":
-      return <SiAdobeaftereffects size={size} className="text-[#CF96FD]" />;
+      return <SiAdobeaftereffects size={size} />;
     default:
       return <div />;
   }
@@ -125,9 +126,14 @@ export interface HighlightTechStackProps {
 
 const HighlightTechStack = ({ icon }: HighlightTechStackProps) => {
   return (
-    <div className="">
+    <motion.div
+      initial={{ scale: 1 }}
+      whileHover={{ scale: 1.5 }}
+      exit={{ scale: 1.1 }}
+      transition={{ duration: 0.2 }}
+    >
       <div className="flex flex-col">
-        <div className="flex items-center justify-center h-12">
+        <div className="flex items-center justify-center h-12 p-3">
           <div className="md:block lg:hidden">
             <TechIcon iconName={icon} size={32} />
           </div>
@@ -136,7 +142,7 @@ const HighlightTechStack = ({ icon }: HighlightTechStackProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import EditorComponent from "@/components/editor/EditorComponent";
-import EditorInformationComponent from "./components/EditorInformation";
-import { SelectMDX, UpdateMDX } from "@/services/mdxservices";
+import { SelectMDX } from "@/services/mdxservices";
 import { useEditorContext } from "@/contexts/EditorContext";
+import EditorBottomToolbar from "./components/EditorBottomToolbar";
+import EditorToolBarComponent from "../components/editor/components/editortoolbarcomponent";
 
 const EditorPage = () => {
   const { currentMDX, setCurrentMDX } = useEditorContext();
@@ -35,14 +36,13 @@ const EditorPage = () => {
 
   return (
     <>
+      <EditorToolBarComponent editor={editor} />
       <div className="flex flex-col lg:flex-row lg:gap-8 justify-center">
-        <div className="relative">
-          <EditorInformationComponent editor={editor} mdxData={currentMDX} />
-        </div>
-        <div className="mt-8 flex flex-col gap-6">
+        <div className="mt-24 flex flex-col gap-6">
           <EditorComponent editor={editor} />
         </div>
       </div>
+      <EditorBottomToolbar editor={editor} mdxData={currentMDX} />
     </>
   );
 };

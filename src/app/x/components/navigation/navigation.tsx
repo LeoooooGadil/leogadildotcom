@@ -6,7 +6,7 @@ import Tabs from './tabs';
 
 const Navigation = () => {
 	return (
-		<div className='flex items-center justify-between py-4 pt-10 w-full lg:w-max mx-auto'>
+		<div className=''>
 			{/* <div className='flex items-center space-x-4'>
 			<Logo />
 		</div>

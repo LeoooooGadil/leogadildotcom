@@ -16,8 +16,6 @@ interface EditorComponentProps {
   mdxData?: any;
 }
 
-type SaveState = "saving" | "saved" | "normal";
-
 const EditorInformation = ({ editor, mdxData }: EditorComponentProps) => {
   const router = useRouter();
   const { saveState, setSaveState, setCurrentMDX } = useEditorContext();
@@ -70,7 +68,7 @@ const EditorInformation = ({ editor, mdxData }: EditorComponentProps) => {
   }, [editor]);
 
   return (
-    <div className="px-4 mt-8 lg:mt-14 w-full sticky top-20 mx-auto lg:px-0 max-w-[576px] lg:mx-0">
+    <div className="mt-8 w-full sticky top-20 mx-auto lg:px-0 max-w-[576px] lg:mx-0">
       <div className="relative text-sm overflow-hidden flex flex-col items-center px-4 lg:px-4 rounded-2xl drop-shadow-lg w-full lg:w-72 mx-auto">
         <h1 className="text-3xl font-bold text-center lg:text-left w-full">
           MDX Editor

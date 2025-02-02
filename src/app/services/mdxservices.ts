@@ -64,11 +64,9 @@ const SelectMDX = async (mdxId: string) => {
       const { data, error } = await supabase.from("mdx").select().eq("id", mdxId);
 
       if (error) {
-        console.error("SelectMDX Error:", error);
         throw new Error(`Select failed: ${error.message}`);
       }
 
-      console.log("SelectMDX Response Data: ", data);
       resolve({ data });
     } catch (error) {
       reject(error);
@@ -106,11 +104,9 @@ const GetAllMDX = async () => {
       const { data, error } = await supabase.from("mdx").select();
 
       if (error) {
-        console.error("GetAllMDX Error: ", error);
         throw new Error(`Failed to fetch mdx: ${error.message}`);
       }
 
-      console.log("GetAllMDX Response Data: ", data);
       resolve({ data });
     } catch (error) {
       reject(error);

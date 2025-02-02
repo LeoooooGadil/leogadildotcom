@@ -5,10 +5,11 @@ import { useEditor } from "@tiptap/react";
 import { extensions } from "@/components/editor/components/editorextensions";
 import DropHandler from "@/components/editor/handler/handledrop";
 
-const TipTapEditor = () => {
+const useTipTapEditor = () => {
   const tiptap = useEditor({
     extensions: [...extensions],
     content: "",
+    immediatelyRender: false,
     editorProps: {
       handleDrop: DropHandler,
       attributes: {
@@ -21,4 +22,4 @@ const TipTapEditor = () => {
 };
 
 
-export default TipTapEditor;
+export default useTipTapEditor;
