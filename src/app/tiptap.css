@@ -59,6 +59,7 @@
   border-radius: 8px;
   line-height: 1.7;
   margin: 0 4px;
+  font-size: 14px;
 }
 
 .viewer pre, .editor pre {

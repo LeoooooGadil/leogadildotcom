@@ -1,34 +1,61 @@
-import React from 'react';
+"use client";
 
-import SectionTitleComponent from '@/components/SectionTitle';
-import ProjectCard from '@/components/ProjectCard';
-import EnterWhileInViewMotionDiv from '../motion/EnterWhileInViewMotionDiv';
+import React, { useState, useEffect } from "react";
+
+import SectionTitleComponent from "@/components/SectionTitle";
+import ProjectCard from "@/components/ProjectCard";
+import EnterWhileInViewMotionDiv from "../motion/EnterWhileInViewMotionDiv";
+import { useProjectsContext } from "@/contexts/ProjectsContext";
+import { ProjectDB } from "@/services/projectservices";
+import { RecentProjects } from "@/assets/projects";
 
 const RecentProjectComponent = () => {
-	return (
-		<EnterWhileInViewMotionDiv>
-			<div className='my-6'>
-				<SectionTitleComponent title='recent' subtitle='projects' />
+  const [list, setList] = useState<ProjectDB[] | undefined>(undefined);
+  const { projects, getProjectBySlug } = useProjectsContext();
 
-				<div className="flex flex-col gap-1 mt-4 p-3 lg:p-0 md:items-center lg:items-start">
-					<ProjectCard
-						picturecolor='--color-secondary'
-						title='Spaceverse'
-						description='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-						link='/projects/spaceverse'
-						techStack={['React', 'TailwindCSS', 'MongoDB']}
-					/>
-					<ProjectCard
-						picturecolor='--color-primary'
-						title='PhilStore'
-						description='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-						link='/projects/philstore'
-						techStack={['React', 'TailwindCSS', 'Firebase']}
-					/>
-				</div>
-			</div>
-		</EnterWhileInViewMotionDiv>
-	)
-}
+  useEffect(() => {
+    if (!projects) return;
 
-export default RecentProjectComponent
+    const projectsData = getProjectBySlug(RecentProjects) as ProjectDB[];
+    setList(projectsData);
+  }, [projects]);
+
+  return (
+    <EnterWhileInViewMotionDiv>
+      <div className="my-6">
+        <SectionTitleComponent title="recent" subtitle="projects" />
+
+        <div className="flex flex-col gap-1 mt-4 p-3 lg:p-0 md:items-center lg:items-start">
+          {!list
+            ? RecentProjects.map((index) => {
+                return (
+                  <ProjectCard
+                    key={index}
+                    picturecolor="--color-secondary"
+                    title=""
+                    description=""
+                    link=""
+                    techStack={[]}
+                    isSkeletal
+                  />
+                );
+              })
+            : list?.map((project) => {
+                return (
+                  <ProjectCard
+                    key={project.slug}
+                    picturecolor="--color-secondary"
+                    title={project.name}
+                    description={project.subtitle}
+                    link={`/projects/${project.slug}`}
+                    techStack={project.techstack}
+                  />
+                );
+              })}
+        </div>
+      </div>
+    </EnterWhileInViewMotionDiv>
+  );
+};
+
+export default RecentProjectComponent;

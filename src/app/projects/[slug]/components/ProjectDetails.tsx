@@ -44,7 +44,7 @@ const ProjectDetails = ({ project, mdx }: ProjectDetailsProps) => {
         </div>
         <div className="py-4 flex justify-between">
           <div>
-            <p className="opacity-50 text-sm">
+            <p className="opacity-50 text-smb ">
               {moment(mdx.create_date).format("MMM D, YYYY")}
             </p>
           </div>
@@ -65,7 +65,7 @@ interface KeywordProps {
 const KeywordItem = ({ keyword }: KeywordProps) => {
   return (
     <div className="bg-[--color-accent] px-3 p-1 rounded-xl drop-shadow-lg">
-      <h1 className="text-sm text-[--color-dark]">{keyword}</h1>
+      <h1 className="text-xs text-[--color-dark]">{keyword}</h1>
     </div>
   );
 };
@@ -74,7 +74,7 @@ const KeywordItem = ({ keyword }: KeywordProps) => {
 
 export const ProjectDetailsSkeletalComponent = () => {
   return (
-    <div className="relative w-full min-h-56 w-11/12 md:w-full mx-auto">
+    <div className="relative min-h-56 w-11/12 md:w-full mx-auto">
       <div className="absolute flex flex-col top-0 w-full mt-1 md:mt-2">
         <div className="h-9 md:h-11 bg-[--color-dark-accent] w-full rounded-xl animate-pulseColor delay-200" />
         <div className="mt-5 flex flex-col gap-2">

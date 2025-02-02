@@ -1,13 +1,20 @@
 "use client";
 
-import React, { ReactNode, useState, useEffect, useContext, createContext } from "react";
+import React, {
+  ReactNode,
+  useState,
+  useEffect,
+  useContext,
+  createContext,
+} from "react";
 import { GetAllProjects, ProjectDB } from "@/services/projectservices";
 
 interface ProjectsContextType {
   projects: ProjectDB[] | null;
   setProjects: React.Dispatch<React.SetStateAction<ProjectDB[] | null>>;
-  getProjectBySlug: (slug: string) => ProjectDB | undefined;
+  getProjectBySlug: (slug: string | string[]) => ProjectDB | (ProjectDB | undefined)[] | undefined;
   getProjectByMxd: (mdxid: string) => ProjectDB | undefined;
+  getProjectById: (id: string | string[]) => ProjectDB | (ProjectDB | undefined)[] | undefined;
   fetchData: () => void;
 }
 
@@ -24,29 +31,55 @@ export default function ProjectsContextProvider({
 }: ProjectsContextProviderProps) {
   const [projects, setProjects] = useState<ProjectDB[] | null>(null);
 
-  const getProjectBySlug = (slug: string) => {
+  const getProjectBySlug = (slug: string | string[]) => {
     if (!projects) return undefined;
-    return projects.find((project) => project.slug === slug); // Find the project with the matching slug
+    
+    if(typeof slug === "string") {
+      return projects.find((project) => project.slug === slug);
+    } else if (Array.isArray(slug)) {
+      return slug
+      .map((projectslug) => 
+        projects.find((project) => project.slug === projectslug)
+      ).filter(Boolean)
+    }
+
+    return undefined;
+  };
+
+  const getProjectById = (id: string | string[]) => {
+    if (!projects) return undefined;
+
+    if (typeof id === "string") {
+      return projects.find((project) => project.id === id);
+    } else if (Array.isArray(id)) {
+      return id
+        .map((projectId) =>
+          projects.find((project) => project.id === projectId)
+        )
+        .filter(Boolean);
+    }
+
+    return undefined;
   };
 
   const getProjectByMxd = (mdxid: string) => {
     if (!projects) return undefined;
     return projects.find((project) => project.mdx_id === mdxid);
-  }
+  };
 
   const fetchData = () => {
     GetAllProjects()
-    .then((data : any) => {
-      setProjects(data.data)
-    })
-    .catch((error) => {
-      throw new Error("Error getting all the Projects.")
-    })
-  }
+      .then((data: any) => {
+        setProjects(data.data);
+      })
+      .catch((error) => {
+        throw new Error("Error getting all the Projects.");
+      });
+  };
 
   useEffect(() => {
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   return (
     <ProjectsContext.Provider
@@ -55,7 +88,8 @@ export default function ProjectsContextProvider({
         setProjects,
         getProjectBySlug,
         getProjectByMxd,
-        fetchData
+        getProjectById,
+        fetchData,
       }}
     >
       {children}
