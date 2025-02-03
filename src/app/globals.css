@@ -18,19 +18,19 @@
 :root {
   --color-red-border: #eb1741;
   --color-red: #921a32;
-  --color-red: "#DC143C";
   --color-primary-hover: #049980;
   --color-primary: #008670;
   --color-secondary-hover: #6978d6;
   --color-secondary: #5f6dc7;
-  --color-accent: #ffa500;
+  --color-yellotape: #efb036;
+  --color-accent: #efb036;
   --color-light: #ffffff;
   --color-light-dark-text: #ffffffcc;
   --color-dark-accent-2: #2b2b2b;
   --color-dark-accent-1: #2e2e2e;
-  --color-dark-accent-animate: #353535;
-  --color-dark-accent: #202020;
-  --color-dark: #181818;
+  --color-dark-accent-animate: #1f1c1c;
+  --color-dark-accent: #161414;
+  --color-dark: #131010;
 }
 
 body {
@@ -77,4 +77,12 @@ body {
 /* On hover, expand the animated bar */
 .underline-link:hover::after {
   transform: scaleX(1);
+}
+
+.profilebackground {
+  background: rgb(218,154,29);
+background: -moz-linear-gradient(215deg, rgba(218,154,29,1) 0%, rgba(154,105,8,1) 100%);
+background: -webkit-linear-gradient(215deg, rgba(218,154,29,1) 0%, rgba(154,105,8,1) 100%);
+background: linear-gradient(215deg, rgba(218,154,29,1) 0%, rgba(154,105,8,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#da9a1d",endColorstr="#9a6908",GradientType=1);
 }

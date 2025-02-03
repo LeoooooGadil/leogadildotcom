@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 interface ProjectCardProps {
   picturecolor?: string;
+  image: string | null,
   title: string;
   description: string;
   link: string;
@@ -14,6 +15,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({
   title,
+  image,
   description,
   techStack,
   picturecolor,
@@ -33,9 +35,11 @@ const ProjectCard = ({
       <div className="">
         {!isSkeletal ? (
           <div
-            className="h-24 lg:h-36 w-24 lg:w-36 bg-[--color-dark-accent-2] rounded-xl"
+            className="h-24 lg:h-36 w-24 lg:w-36 bg-[--color-dark-accent-2] overflow-hidden rounded-xl p-0.5"
             style={{ backgroundColor: `var(${picturecolor})` }}
-          />
+          >
+            {image && <img src={image} alt={image} className="w-full h-full group-hover:scale-105 transition-all duration-500 rounded-xl" />}
+          </div>
         ) : (
           <div className="h-24 lg:h-36 w-24 lg:w-36 bg-[--color-dark-accent] rounded-xl" />
         )}

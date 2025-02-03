@@ -15,7 +15,7 @@ const ImGladToSeeYouHereComponent = () => {
         >
           <div className="relative overflow-hidden flex justify-center items-center py-3 rounded-xl drop-shadow-md max-w-[576px] lg:max-w-none mx-auto lg:mx-0">
             <YellowtapeBackground />
-            <h1 className="text-xl md:text-4xl cursor-default text-[--color-dark] uppercase rounded-lg font-bold text-center bg-[--color-accent] py-1 px-1 w-max">
+            <h1 className="text-xl md:text-4xl cursor-default text-[--color-dark] uppercase rounded-lg font-bold text-center bg-[--color-yellotape] py-1 px-1 w-max">
               I am glad to see you here.
             </h1>
           </div>
@@ -32,7 +32,7 @@ const YellowtapeBackground = () => {
         <div
           key={index}
           className={`w-10 h-64 rotate-45 ${
-            index % 2 === 0 ? "bg-[--color-accent]" : "bg-[--color-dark-accent]"
+            index % 2 === 0 ? "bg-[--color-yellotape]" : "bg-[--color-dark-accent]"
           }`}
         />
       ))}

@@ -3,9 +3,11 @@ import { ValidateNewMDX } from "@/utils/validators";
 import moment from "moment";
 import { CalculateReadTimeFromHTML } from "@/utils/helpers";
 
+export type mdxType = "project" | "blog";
+
 export type MDXNewData = {
   title: string;
-  type: string;
+  type: mdxType;
   subtitle: string;
   image: string | null;
   keywords: string[];
@@ -16,7 +18,7 @@ export type MDXNewData = {
 export type MDXDB = {
   id: string;
   title: string;
-  type: string;
+  type: mdxType;
   subtitle: string;
   image: string | null;
   keywords: string[];

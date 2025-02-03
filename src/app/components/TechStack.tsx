@@ -29,6 +29,9 @@ import {
   TbBrandAdobeAfterEffect,
 } from "react-icons/tb";
 
+import { BiLogoTypescript } from "react-icons/bi";
+import { RiJavascriptFill } from "react-icons/ri";
+
 export type TechIconType =
   | "Typescript"
   | "Javascript"
@@ -50,9 +53,9 @@ export interface TechIconProps {
 const TechIcon = ({ iconName, size }: TechIconProps): JSX.Element => {
   switch (iconName) {
     case "Typescript":
-      return <SiTypescript size={size} />;
+      return <BiLogoTypescript size={size + 8} />;
     case "Javascript":
-      return <SiJavascript size={size} />;
+      return <RiJavascriptFill size={size + 8} />;
     case "Python":
       return <SiPython size={size} />;
     case "React":

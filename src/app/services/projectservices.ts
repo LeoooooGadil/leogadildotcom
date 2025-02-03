@@ -1,6 +1,6 @@
 import { supabase } from "@/utils/supabase";
 import { ValidateNewProject } from "@/utils/validators";
-import { CreateNewMDX } from "./mdxservices";
+import { CreateNewMDX, mdxType } from "./mdxservices";
 import moment from "moment";
 import { TechIconType } from "@/components/TechStack";
 
@@ -33,7 +33,7 @@ const CreateNewProject = async (projectData: ProjectNewData) => {
     try {
 
       const _mdxData = {
-        type: "project",
+        type: "project" as mdxType,
         title: projectData.name,
         subtitle: projectData.subtitle,
         image: projectData.image,
@@ -41,9 +41,6 @@ const CreateNewProject = async (projectData: ProjectNewData) => {
         readtime: 0,
         content: "",
       };
-
-      console.log(_mdxData);
-
       const mdxResponse = await CreateNewMDX(_mdxData) as { data: any };
       
       if (!mdxResponse.data || !mdxResponse.data[0]?.id) {

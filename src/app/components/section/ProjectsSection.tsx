@@ -31,7 +31,8 @@ const RecentProjectComponent = () => {
                 return (
                   <ProjectCard
                     key={index}
-                    picturecolor="--color-secondary"
+                    picturecolor="--color-accent"
+                    image={null}
                     title=""
                     description=""
                     link=""
@@ -44,7 +45,8 @@ const RecentProjectComponent = () => {
                 return (
                   <ProjectCard
                     key={project.slug}
-                    picturecolor="--color-secondary"
+                    picturecolor="--color-accent"
+                    image={project.image}
                     title={project.name}
                     description={project.subtitle}
                     link={`/projects/${project.slug}`}

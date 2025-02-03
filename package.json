@@ -11,6 +11,7 @@
   "dependencies": {
     "@ljharb/tsconfig": "^0.2.3",
     "@supabase/supabase-js": "^2.48.0",
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/typography": "^0.5.16",
     "@tiptap/extension-blockquote": "^2.11.2",
     "@tiptap/extension-bold": "^2.11.2",
