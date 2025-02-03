@@ -85,8 +85,8 @@ const Tools = (editor: Editor | null): Record<string, ToolsType> => {
 			name: "Headings",
 			type: "toggleDropdown",
 			Icon: LuHeading1,
-			onClick: (index: number) => editor?.chain().focus().toggleHeading({ level: (index + 1) as Level }),
-			active: (index: number) => editor?.isActive("heading", { level: index + 1 }),
+			onClick: (index: number) => editor?.chain().focus().toggleHeading({ level: index + 1 as Level }).run(),
+			active: (index: number) => !!editor?.isActive("heading", { level: index + 1 }),
 			options: [LuHeading1, LuHeading2, LuHeading3, LuHeading4, LuHeading5, LuHeading6],
 			disable: editor == null
 		},
@@ -95,9 +95,7 @@ const Tools = (editor: Editor | null): Record<string, ToolsType> => {
 			type: "toggleDropdown",
 			Icon: PiTextAlignLeftBold,
 			onClick: (index: number) => editor?.chain().focus().setTextAlign(["left", "center", "right", "justify"][index]).run(),
-			active: (index: number) => editor?.isActive("textAlign", {
-				textAlign: ["left", "center", "right", "justify"][index]
-			}),
+			active: (index: number) => !!editor?.isActive("textAlign", { textAlign: ["left", "center", "right", "justify"][index] }),
 			options: [
 				PiTextAlignLeftBold,
 				PiTextAlignCenterBold,
@@ -119,7 +117,7 @@ const Tools = (editor: Editor | null): Record<string, ToolsType> => {
 			type: "toggle",
 			Icon: LuRedo2,
 			active: false,
-			onClick: () => editor?.chain().focus().undo().run(),
+			onClick: () => editor?.chain().focus().redo().run(),
 			disable: editor == null
 		},
 	}

@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import "../globals.css";
-import Navigation from "./components/navigation/navigation";
 import FooterComponent from "@/app/components/Footer";
 import EditorContextProvider from "@/contexts/EditorContext";
 
@@ -19,7 +17,7 @@ export default function AdminLayout({
       <div className={`mx-auto max-w-screen-xl overflow-hidden`}>
         <div className="relative">{children}
           <div>
-            <FooterComponent />
+            {/* <FooterComponent /> */}
           </div>
         </div>
       </div>

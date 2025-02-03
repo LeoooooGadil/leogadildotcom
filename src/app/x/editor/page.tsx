@@ -38,7 +38,7 @@ const EditorPage = () => {
     <>
       <EditorToolBarComponent editor={editor} />
       <div className="flex flex-col lg:flex-row lg:gap-8 justify-center">
-        <div className="mt-24 flex flex-col gap-6">
+        <div className="mt-24 flex flex-col gap-6 w-full">
           <EditorComponent editor={editor} />
         </div>
       </div>

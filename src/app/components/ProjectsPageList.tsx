@@ -25,11 +25,12 @@ const ProjectsLPageList = () => {
         <SectionTitleComponent title="recent" subtitle="projects" />
         <div className="flex flex-col gap-1 mt-8 p-3 lg:p-0 items-center lg:items-start">
           {!list
-            ? WholeProjectsList.map((index) => {
+            ? WholeProjectsList.map((project, index) => {
                 return (
                   <ProjectCard
-                    key={index}
-                    picturecolor="--color-secondary"
+                    key={project}
+                    picturecolor={index % 1 === 0 ? "--color-primary" : "--color-secondary"}
+                    image={null}
                     title=""
                     description=""
                     link=""
@@ -38,11 +39,12 @@ const ProjectsLPageList = () => {
                   />
                 );
               })
-            : list?.map((project) => {
+            : list?.map((project, index) => {
                 return (
                   <ProjectCard
                     key={project.slug}
-                    picturecolor="--color-secondary"
+                    picturecolor={index % 1 === 0 ? "--color-primary" : "--color-secondary"}
+                    image={project.image}
                     title={project.name}
                     description={project.subtitle}
                     link={`/projects/${project.slug}`}

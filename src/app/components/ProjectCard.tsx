@@ -35,10 +35,10 @@ const ProjectCard = ({
       <div className="">
         {!isSkeletal ? (
           <div
-            className="h-24 lg:h-36 w-24 lg:w-36 bg-[--color-dark-accent-2] overflow-hidden rounded-xl p-0.5"
+            className="h-24 lg:h-36 w-24 lg:w-36 bg-[--color-dark-accent-2] overflow-hidden rounded-xl"
             style={{ backgroundColor: `var(${picturecolor})` }}
           >
-            {image && <img src={image} alt={image} className="w-full h-full group-hover:scale-105 transition-all duration-500 rounded-xl" />}
+            {image && <img src={image} alt={image} className="w-full h-full transition-all duration-500 rounded-xl" />}
           </div>
         ) : (
           <div className="h-24 lg:h-36 w-24 lg:w-36 bg-[--color-dark-accent] rounded-xl" />

@@ -38,14 +38,14 @@ const EditorComponent = ({ editor }: EditorComponentProps) => {
   }, [saveState]);
 
   return (
-    <div className="relative mx-auto px-4 lg:px-0 max-w-[576px] lg:mx-0">
+    <div className="relative mx-auto px-4 lg:px-0 max-w-[576px] w-full">
       {editor === null ? (
         <div className="h-[524px] max-w-[576px] w-full flex justify-center items-center">
           <Spinner />
         </div>
       ) : (
         <div className="mt-2">
-          <EditorContent editor={editor} />
+          <EditorContent editor={editor} className="min-h-dvh" />
 
           {/* Border */}
           <div className="border-b-2 border-[--color-dark-accent]"></div>

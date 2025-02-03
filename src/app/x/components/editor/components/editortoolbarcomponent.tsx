@@ -42,7 +42,7 @@ const EditorToolBarComponent = ({ editor }: EditorToolBarProps) => {
           })}
         </div>
       </div>
-      <DropdownOptionsDialogBox/>
+      <DropdownOptionsDialogBox />
     </>
   );
 };

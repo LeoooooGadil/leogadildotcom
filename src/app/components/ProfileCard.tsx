@@ -57,13 +57,13 @@ const PersistentImages = React.memo(() => (
       priority
       src={ArrowDashedLine}
       alt="Arrow"
-      className="select-none absolute w-72 lg:w-full lg:min-w-0 h-full lg:top-12 right-1/2 lg:right-20 lg:-rotate-45 z-[40]"
+      className="pointer-events-none absolute w-72 lg:w-full lg:min-w-0 h-full lg:top-12 right-1/2 lg:right-20 lg:-rotate-45 z-[40]"
     />
     <Image
       priority
       src={DashedLine}
       alt="Circle"
-      className="select-none absolute w-80 h-80 -top-12 right-0 z-[40]"
+      className="pointer-events-none absolute w-96 h-96 -top-24 -right-4 z-[40]" 
     />
   </>
 ));

@@ -5,7 +5,7 @@ import * as motion from "motion/react-client";
 const ImGladToSeeYouHereComponent = () => {
   return (
     <EnterDropMotionDiv delay={0.4}>
-      <div className="overflow-hidden lg:overflow-visible">
+      <div className="hover:animate-spin overflow-hidden lg:overflow-visible">
         <motion.div
           className="my-6 px-6 lg:px-0"
           initial={{ scale: 1 }}
