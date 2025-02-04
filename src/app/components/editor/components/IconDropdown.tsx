@@ -31,17 +31,15 @@ export const IconDropdown: React.FC<IconDropdownProps> = ({
   }, [options, isActive, active]);
 
   return (
-    <div className={` text-white rounded-lg h-10 flex overflow-y-hidden border ${
-      active
-      ? "border-[--color-primary-hover]" : "border-[--color-dark-accent-1]"
-    }`}>
+    <div className={` text-white rounded-lg h-10 flex overflow-y-hidden border ${active
+        ? "border-[--color-primary-hover]" : "border-[--color-dark-accent-1]"
+      }`}>
       <button
         className={`pl-3 pr-3 py-2 transition-colors
-        ${
-          active
+        ${active
             ? "bg-[--color-primary]"
             : "bg-[--color-dark-accent] hover:bg-[--color-dark-accent-1]"
-        }
+          }
         `}
         onClick={() => onSelect(selectedOption)}
       >
@@ -50,11 +48,10 @@ export const IconDropdown: React.FC<IconDropdownProps> = ({
       </button>
       <button
         className={`px-1 transition-colors
-        ${
-          active
+        ${active
             ? "bg-[--color-primary]"
             : "bg-[--color-dark-accent] hover:bg-[--color-dark-accent-1]"
-        }
+          }
       `}
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
       >
@@ -69,9 +66,5 @@ export const IconDropdown: React.FC<IconDropdownProps> = ({
 };
 
 export const DropdownOptionsDialogBox: React.FC = () => {
-  const { dropdownContext } = useEditorContext();
-
-  if (!dropdownContext?.open) return null;
-
   return null;
 };
