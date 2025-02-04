@@ -6,7 +6,7 @@ import EditorComponent from "@/components/editor/EditorComponent";
 import { SelectMDX } from "@/services/mdxservices";
 import { useEditorContext } from "@/contexts/EditorContext";
 import EditorBottomToolbar from "./components/EditorBottomToolbar";
-import EditorToolBarComponent from "../components/editor/components/editortoolbarcomponent";
+import EditorToolBarComponent from "@/components/editor/components/editortoolbarcomponent";
 
 
 const EditorPage = () => {
@@ -25,7 +25,7 @@ const EditorPageComponent = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if(!id) return;
+      if (!id) return;
 
       // eslint-disable-next-line  @typescript-eslint/no-explicit-any
       const { data } = (await SelectMDX(id)) as any;
