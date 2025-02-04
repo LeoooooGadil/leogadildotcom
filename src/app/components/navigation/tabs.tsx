@@ -58,7 +58,7 @@ const Tabs = () => {
     <div className="w-full">
       <ul className="flex items-center justify-center">
         {tabs.map((tab, index) =>
-          !isLocal && !tab.isLocal ? null : (
+          isLocal && tab.isLocal ? null : (
             <Tab
               key={index + "tab"}
               name={tab.name}
@@ -98,7 +98,7 @@ const Tab: React.FC<TabProps> = ({
         <motion.button
           onClick={(e) => {
             e.preventDefault();
-            if(handleTabChange) handleTabChange(name);
+            if (handleTabChange) handleTabChange(name);
           }}
           onPointerEnter={() => setOnHover(true)}
           onPointerLeave={() => setOnHover(false)}
