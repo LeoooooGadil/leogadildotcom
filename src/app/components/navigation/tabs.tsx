@@ -38,6 +38,7 @@ const Tabs = () => {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("");
 
+  // Check if the environment is local (development)
   const isLocal = process.env.NODE_ENV === "development";
 
   useEffect(() => {
@@ -57,8 +58,9 @@ const Tabs = () => {
   return (
     <div className="w-full">
       <ul className="flex items-center justify-center">
-        {tabs.map((tab, index) =>
-          isLocal && tab.isLocal ? null : (
+        {tabs
+          .filter((tab) => !(tab.isLocal && !isLocal)) // Filter out "Admin" when deployed
+          .map((tab, index) => (
             <Tab
               key={index + "tab"}
               name={tab.name}
@@ -67,12 +69,12 @@ const Tabs = () => {
               active={tab.name === activeTab}
               handleTabChange={handleTabChange}
             />
-          )
-        )}
+          ))}
       </ul>
     </div>
   );
 };
+
 
 // Tab component
 interface TabProps {
