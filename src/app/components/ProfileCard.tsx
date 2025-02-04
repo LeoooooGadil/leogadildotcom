@@ -14,7 +14,7 @@ const ProfileComponent = () => {
 
         <div className="z-30 flex flex-col items-center ">
           <div className="relative rounded-[35px]">
-            <div className="h-72 lg:64 w-64">
+            <div className="h-56 lg:h-72 lg:64 w-64">
               <div className="absolute overflow-hidden profilebackground drop-shadow-xl rounded-2xl w-full h-full flex justify-center items-center">
                 <Image
                   priority
@@ -58,7 +58,7 @@ const PersistentImages = () => {
         priority
         src={ArrowDashedLine}
         alt="Arrow"
-        className="pointer-events-none absolute w-72 lg:w-full lg:min-w-0 h-full lg:top-12 right-1/2 lg:right-20 lg:-rotate-45 z-[40]"
+        className="pointer-events-none absolute w-72 lg:w-full lg:min-w-0 h-full top-6 lg:top-12 right-1/2 lg:right-20 lg:-rotate-45 z-[40]"
       />
       <Image
         priority
