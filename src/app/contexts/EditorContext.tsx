@@ -24,8 +24,6 @@ interface EditorContextType {
   setSaveState: React.Dispatch<React.SetStateAction<SaveState>>;
   currentMDX: MDXData | null;
   setCurrentMDX: React.Dispatch<React.SetStateAction<MDXData | null>>;
-  dropdownContext: any | null;
-  setDropdownContext: React.Dispatch<React.SetStateAction<any | null>>
 }
 
 export const EditorContext = createContext<EditorContextType | undefined>(
@@ -43,10 +41,8 @@ export default function EditorContextProvider({
   const [currentMDX, setCurrentMDX] = useState<MDXData | null>(null);
   const [saveState, setSaveState] = useState<SaveState>("saving");
 
-  const [dropdownContext, setDropdownContext] = useState<any | null>(null);
-
   return (
-    <EditorContext.Provider value={{ editor, saveState, setSaveState, currentMDX, setCurrentMDX, dropdownContext, setDropdownContext }}>
+    <EditorContext.Provider value={{ editor, saveState, setSaveState, currentMDX, setCurrentMDX }}>
       {children}
     </EditorContext.Provider>
   );
