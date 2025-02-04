@@ -1,6 +1,6 @@
 import React from "react";
-import EnterDropMotionDiv from "./motion/EnterDropMotionDiv";
-import TipTapViewer from "@/components/viewer/viewer";
+import EnterDropMotionDiv from "@/components/motion/EnterDropMotionDiv";
+import TipTapViewer from "@/app/components/viewer/viewer";
 import { EditorContent } from "@tiptap/react";
 
 interface ContentDisplayProps {
@@ -12,10 +12,10 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ content }) => {
   return (
     <EnterDropMotionDiv delay={0.3}>
       <div className="">
-      <div className="min-h-[400px] w-11/12 md:w-full mx-auto">
-        <EditorContent editor={viewer} />
-      </div>
-      <div className="border-b-2 border-[--color-dark-accent] "></div>
+        <div className="min-h-[400px] w-11/12 md:w-full mx-auto">
+          <EditorContent editor={viewer} />
+        </div>
+        <div className="border-b-2 border-[--color-dark-accent] "></div>
       </div>
     </EnterDropMotionDiv>
   );
