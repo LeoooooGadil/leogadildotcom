@@ -10,7 +10,6 @@ interface TextBoxProps {
 
 const Texbox = ({
   placeholder,
-  value,
   onChange,
   name,
   helpertext,
@@ -25,12 +24,12 @@ const Texbox = ({
     onChange({
       target: { value: _value },
     } as React.ChangeEvent<HTMLInputElement>);
-  }, [_value]);
+  }, [_value, onChange]);
 
   return (
     <div className="flex flex-col justify-center">
       <div className="max-w-[576px] mx-auto lg:mx-0 w-full">
-        <p className="text-sm text-left lg:text-left opacity-80 mb-2 ml-2 italic opacity-50">
+        <p className="text-sm text-left lg:text-left mb-2 ml-2 italic opacity-50">
           {helpertext}
         </p>
         <input

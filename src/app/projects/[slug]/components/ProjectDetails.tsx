@@ -33,12 +33,12 @@ const ProjectDetails = ({ project, mdx }: ProjectDetailsProps) => {
           <p className="opacity-80 lg:text-lg">{mdx.subtitle}</p>
         </div>
         <div className="flex gap-4">
-          {project.techstack.map((tech, index) => {
+          {project.techstack.map((tech) => {
             return <TechIcon key={tech} iconName={tech} size={20} />;
           })}
         </div>
         <div className="flex gap-2 mt-6">
-          {mdx.keywords.map((keyword, index) => {
+          {mdx.keywords.map((keyword) => {
             return <KeywordItem key={`keyword-${keyword}`} keyword={keyword} />;
           })}
         </div>

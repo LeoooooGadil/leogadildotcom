@@ -18,7 +18,7 @@ const RecentProjectComponent = () => {
 
     const projectsData = getProjectBySlug(RecentProjects) as ProjectDB[];
     setList(projectsData);
-  }, [projects]);
+  }, [projects, getProjectBySlug]);
 
   return (
     <EnterWhileInViewMotionDiv>

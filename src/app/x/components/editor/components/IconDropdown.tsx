@@ -1,3 +1,6 @@
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { useEditorContext } from "@/app/contexts/EditorContext";
 import React, { useState, useEffect, useRef } from "react";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";

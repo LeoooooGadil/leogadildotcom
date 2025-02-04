@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import Title from "@/components/Title";
 import Description from "@/components/Description";
 import TextBox from "@/components/Textbox";
@@ -47,26 +47,27 @@ const AddAProjectComponent = () => {
     techstack: [],
   } as ProjectNewData);
 
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const handleChangeProjectName = (event: any) => {
     setProjectData({ ...projectData, name: event.target.value });
   };
 
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const handleChangeProjectSubtitle = (event: any) => {
     setProjectData({ ...projectData, subtitle: event.target.value });
   };
 
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const handleChangeProjectDescription = (event: any) => {
     setProjectData({ ...projectData, description: event.target.value });
   };
 
-  const handleChangeProjectImage = (event: any) => {
-    setProjectData({ ...projectData, image: event.target.value });
-  };
-
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const handleChangeProjectKeywords = (keywords: any) => {
     setProjectData({ ...projectData, keywords: keywords });
   };
 
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const handleChangeProjectTechStack = (techstack: any) => {
     setProjectData({ ...projectData, techstack: techstack });
   };
@@ -74,6 +75,7 @@ const AddAProjectComponent = () => {
   const onSubmit = () => {
     setLoading(true);
     CreateNewProject(projectData)
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
       .then((data : any) => {
         fetchData();
         const mdxId = data[0].mdx_id;

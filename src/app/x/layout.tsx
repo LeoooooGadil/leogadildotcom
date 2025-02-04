@@ -1,11 +1,4 @@
-import type { Metadata } from "next";
-import FooterComponent from "@/app/components/Footer";
 import EditorContextProvider from "@/contexts/EditorContext";
-
-// export const metadata: Metadata = {
-// 	title: "Administrator",
-// 	description: "Admin Page for the portfolio of Leo Gadil",
-// };
 
 export default function AdminLayout({
   children,

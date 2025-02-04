@@ -7,7 +7,7 @@ import { DropdownOptionsDialogBoxProps } from "@/components/editor/components/Ic
 
 type SaveState = "saving" | "saved" | "normal";
 
-type MDXData = {
+export type MDXData = {
   id: string;
   type: string;
   title: string;

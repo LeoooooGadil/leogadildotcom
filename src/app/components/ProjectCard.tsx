@@ -2,10 +2,11 @@
 
 import { TbArrowUpRight } from "react-icons/tb";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface ProjectCardProps {
   picturecolor?: string;
-  image: string | null,
+  image: string | null;
   title: string;
   description: string;
   link: string;
@@ -17,7 +18,6 @@ const ProjectCard = ({
   title,
   image,
   description,
-  techStack,
   picturecolor,
   link,
   isSkeletal,
@@ -38,7 +38,16 @@ const ProjectCard = ({
             className="h-24 lg:h-36 w-24 lg:w-36 bg-[--color-dark-accent-2] overflow-hidden rounded-xl"
             style={{ backgroundColor: `var(${picturecolor})` }}
           >
-            {image && <img src={image} alt={image} className="w-full h-full transition-all duration-500 rounded-xl" />}
+            {image && (
+              <div className="relative w-full h-full">
+                <Image
+                  src={image}
+                  alt="Image"
+                  fill
+                  className="object-cover rounded-xl transition-all duration-500"
+                />
+              </div>
+            )}
           </div>
         ) : (
           <div className="h-24 lg:h-36 w-24 lg:w-36 bg-[--color-dark-accent] rounded-xl" />

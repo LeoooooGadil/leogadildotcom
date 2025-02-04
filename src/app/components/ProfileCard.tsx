@@ -51,21 +51,23 @@ const ProfileComponent = () => {
   );
 };
 
-const PersistentImages = React.memo(() => (
-  <>
-    <Image
-      priority
-      src={ArrowDashedLine}
-      alt="Arrow"
-      className="pointer-events-none absolute w-72 lg:w-full lg:min-w-0 h-full lg:top-12 right-1/2 lg:right-20 lg:-rotate-45 z-[40]"
-    />
-    <Image
-      priority
-      src={DashedLine}
-      alt="Circle"
-      className="pointer-events-none absolute w-96 h-96 -top-24 -right-4 z-[40]" 
-    />
-  </>
-));
+const PersistentImages = () => {
+  return (
+    <>
+      <Image
+        priority
+        src={ArrowDashedLine}
+        alt="Arrow"
+        className="pointer-events-none absolute w-72 lg:w-full lg:min-w-0 h-full lg:top-12 right-1/2 lg:right-20 lg:-rotate-45 z-[40]"
+      />
+      <Image
+        priority
+        src={DashedLine}
+        alt="Circle"
+        className="pointer-events-none absolute w-96 h-96 -top-24 -right-4 z-[40]"
+      />
+    </>
+  )
+};
 
 export default ProfileComponent;

@@ -31,7 +31,7 @@ const ProjectPage = () => {
     const fetchData = () => {
       setIsLoading(true); // Set loading state to true before fetching data
 
-      const _project = getProjectBySlug(slug as string);
+      const _project = getProjectBySlug(slug as string) as ProjectDB;
       const _mdxid = _project?.mdx_id;
       const _mdx = getMDXById(_mdxid as string);
       setProject(_project);
@@ -41,7 +41,7 @@ const ProjectPage = () => {
     };
 
     fetchData();
-  }, [projects, mdxList, slug]);
+  }, [projects, mdxList, slug, getMDXById, getProjectBySlug]);
 
   return (
     <div className="flex flex-col lg:flex-row lg:gap-8 mt-8">

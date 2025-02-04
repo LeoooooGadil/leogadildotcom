@@ -1,5 +1,5 @@
 
-import { EditorView, EditorProps } from "@tiptap/pm/view";
+import { EditorView } from "@tiptap/pm/view";
 import UploadImage from "../actions/uploadimage";
 import { Slice } from "@tiptap/pm/model";
 
@@ -11,7 +11,7 @@ type Coordinates = {
 const DropHandler = (
 	view: EditorView,
 	event: DragEvent,
-	slice: Slice,
+	_slice: Slice,
 	moved: boolean
   ): boolean => {
 	if (

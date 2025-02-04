@@ -69,7 +69,7 @@ const Tab: React.FC<TabProps> = ({ name, Icon, link, active, handleTabChange }) 
 					href={link}
 					onClick={(e) => {
 						e.preventDefault();
-						handleTabChange && handleTabChange(name);
+						if(handleTabChange) handleTabChange(name);
 					}}
 					className={`hover:text-[--color-accent] transition-colors ${active ? 'active-tab' : ''}`}
 				>

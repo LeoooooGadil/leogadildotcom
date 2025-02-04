@@ -5,10 +5,12 @@ import "./tiptap.css";
 import "./syntaxhighlight.css";
 import ProjectsContextProvider from "@/contexts/ProjectsContext";
 import MDXContextProvider from "./contexts/MDXContext";
+import BlogsContextProvider from "./contexts/BlogsContext";
 
 const globalFont = Poppins({
   display: "swap",
   weight: ["300", "400", "700", "500"],
+  subsets: ["latin", "latin-ext"],
 });
 
 export const metadata: Metadata = {
@@ -28,9 +30,11 @@ export default function RootLayout({
         className={`${globalFont.className} bg-[--color-dark] text-white mx-auto max-w-screen-lg overflow-y-scroll`}
       >
         <ProjectsContextProvider>
-          <MDXContextProvider>
-            {children}
-          </MDXContextProvider>
+          <BlogsContextProvider>
+            <MDXContextProvider>
+              {children}
+            </MDXContextProvider>
+          </BlogsContextProvider>
         </ProjectsContextProvider>
       </body>
     </html>

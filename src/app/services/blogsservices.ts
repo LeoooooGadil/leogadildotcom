@@ -39,6 +39,7 @@ const CreateNewBlog = async (blogData: BlogNewData) => {
         readtime: 0,
         content: "",
       };
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
       const mdxResponse = (await CreateNewMDX(_mdxData)) as { data: any };
 
       if (!mdxResponse.data || !mdxResponse.data[0]?.id) {

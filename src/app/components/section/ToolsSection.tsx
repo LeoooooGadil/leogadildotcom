@@ -1,7 +1,7 @@
 import React from "react";
 
 import SectionTitleComponent from "@/components/SectionTitle";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 import EnterWhileInViewMotionDiv from "../motion/EnterWhileInViewMotionDiv";
 
 import vscodeimage from "@/assets/images/vscode.png";
@@ -101,7 +101,7 @@ const ToolComponent = ({ title, description, image, className, link }: ToolProps
     >
       <div>
         <div className={`h-16 w-16 bg-[--color-light] drop-shadow-lg rounded-2xl flex items-center justify-center ${className} group-hover:rotate-0 transition-transform duration-300`}>
-          <img
+          <Image
             src={image.src}
             alt={title}
             className="h-10 w-10 object-contain"

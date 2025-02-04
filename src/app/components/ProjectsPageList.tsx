@@ -12,12 +12,12 @@ const ProjectsLPageList = () => {
   const [list, setList] = useState<ProjectDB[] | undefined>(undefined);
   const { projects, getProjectBySlug } = useProjectsContext();
 
-   useEffect(() => {
-      if (!projects) return;
-  
-      const projectsData = getProjectBySlug(WholeProjectsList) as ProjectDB[];
-      setList(projectsData);
-    }, [projects]);
+  useEffect(() => {
+    if (!projects) return;
+
+    const projectsData = getProjectBySlug(WholeProjectsList) as ProjectDB[];
+    setList(projectsData);
+  }, [projects, getProjectBySlug]);
 
   return (
     <EnterDropMotionDiv>
@@ -29,7 +29,9 @@ const ProjectsLPageList = () => {
                 return (
                   <ProjectCard
                     key={project}
-                    picturecolor={index % 1 === 0 ? "--color-primary" : "--color-secondary"}
+                    picturecolor={
+                      index % 1 === 0 ? "--color-primary" : "--color-secondary"
+                    }
                     image={null}
                     title=""
                     description=""
@@ -43,7 +45,9 @@ const ProjectsLPageList = () => {
                 return (
                   <ProjectCard
                     key={project.slug}
-                    picturecolor={index % 1 === 0 ? "--color-primary" : "--color-secondary"}
+                    picturecolor={
+                      index % 1 === 0 ? "--color-primary" : "--color-secondary"
+                    }
                     image={project.image}
                     title={project.name}
                     description={project.subtitle}

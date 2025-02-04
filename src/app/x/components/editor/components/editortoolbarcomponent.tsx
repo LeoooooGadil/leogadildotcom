@@ -14,7 +14,10 @@ const EditorToolBarComponent = ({ editor }: EditorToolBarProps) => {
     <>
       <div className="fixed top-0 left-0 z-10 bg-[--color-dark] border-b border-[--color-dark-accent-1] w-full drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] overflow-x-auto">
         <div className="flex space-x-2 justify-center items-center h-14 w-min mx-auto">
-          {Object.entries(Tools(editor)).map(([key, tool]: [string, ToolsType]) => {
+        
+          {Object.entries(Tools(editor))
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          .map(([_key, tool]: [string, ToolsType]) => {
             switch(tool.type) {
               case "toggle":
                 return (

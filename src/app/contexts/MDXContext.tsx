@@ -28,10 +28,11 @@ export default function MDXContextProvider({
 
   const fetchData = () => {
     GetAllMDX() // Fetch all MDX data using GetAllMDX
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
       .then((data: any) => {
         setMdxList(data?.data || []); // Set the MDX list with the fetched data
       })
-      .catch((error) => {
+      .catch(() => {
         throw new Error("Error getting all the MDX data");
       });
   };

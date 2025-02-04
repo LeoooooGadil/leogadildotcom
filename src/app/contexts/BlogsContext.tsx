@@ -3,9 +3,10 @@
 import React, {
 	createContext,
 	ReactNode,
+	useContext,
 	useState
 } from "react";
-import { GetAllBlogs, BlogDB } from "../services/blogsservices";
+import { BlogDB } from "../services/blogsservices";
 
 interface BlogContextType {
 	blogs: BlogDB[] | null;
@@ -29,6 +30,17 @@ export default function BlogsContextProvider({
 		<BlogsContext.Provider value={{
 			blogs, setBlogs
 		}}>
+			{children}
 		</BlogsContext.Provider>
 	)
+}
+
+export function useBlogsContext() {
+	const context = useContext(BlogsContext);
+	if (context === undefined) {
+		throw new Error(
+			"useBlogsContext must be used within an BlogsContextProvider"
+		)
+	}
+	return context;
 }

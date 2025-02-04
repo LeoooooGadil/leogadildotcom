@@ -2,8 +2,6 @@ import { JSX } from "react";
 import * as motion from "motion/react-client";
 
 import {
-  SiTypescript,
-  SiJavascript,
   SiPython,
   SiReact,
   SiTailwindcss,

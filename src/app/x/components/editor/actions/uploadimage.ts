@@ -8,7 +8,7 @@ const UploadImage = async (file: File) => {
     const filePath = `uploads/${Date.now()}_${filename}`;
 
     // Upload file to Supabase
-    const { data, error } = await supabase.storage.from(bucket).upload(filePath, file);
+    const { error } = await supabase.storage.from(bucket).upload(filePath, file);
 
     if (error) {
       throw new Error(`Upload failed: ${error.message}`);

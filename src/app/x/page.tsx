@@ -11,6 +11,7 @@ type Tab = {
   page: string;
   component: JSX.Element | null;
   tabs?: Tab[]; // Allow nested tabs
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   Icon?: any; // Optional icon for tabs
 };
 

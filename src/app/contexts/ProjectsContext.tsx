@@ -69,10 +69,11 @@ export default function ProjectsContextProvider({
 
   const fetchData = () => {
     GetAllProjects()
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
       .then((data: any) => {
         setProjects(data.data);
       })
-      .catch((error) => {
+      .catch(() => {
         throw new Error("Error getting all the Projects.");
       });
   };

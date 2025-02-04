@@ -1,3 +1,5 @@
+import React from "react";
+
 import { TbArrowUpRight } from "react-icons/tb";
 
 type HighlightType = "project" | "blog" | "video" | "other";
@@ -15,27 +17,9 @@ interface HighlightComponentProps {
 const HighlightCard = ({
   title,
   description,
-  type,
-  link,
   color,
-  additionalText,
   className
 }: HighlightComponentProps) => {
-  const LinkText = () => {
-    switch (type) {
-      case "blog":
-        return "read blog";
-      case "project":
-        return "view project";
-      case "video":
-        return "watch video";
-      case "other":
-        return "view";
-      default:
-        return "view";
-    }
-  };
-
   return (
     <button className="group">
       <div

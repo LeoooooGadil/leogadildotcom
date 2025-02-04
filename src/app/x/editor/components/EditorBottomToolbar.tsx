@@ -2,7 +2,7 @@
 
 import { useMDXContext } from "@/contexts/MDXContext";
 import { UpdateMDX } from "@/services/mdxservices";
-import { useEditorContext } from "@/contexts/EditorContext";
+import { MDXData, useEditorContext } from "@/contexts/EditorContext";
 import { useProjectsContext } from "@/contexts/ProjectsContext";
 import { Editor } from "@tiptap/react";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,7 @@ import { GetHumanizedDifference } from "@/utils/helpers";
 
 interface EditorBottomToolbarProps {
 	editor: Editor | null;
-	mdxData?: any;
+	mdxData: MDXData | null;
 }
 
 const EditorBottomToolbar = ({ editor, mdxData }: EditorBottomToolbarProps) => {
@@ -28,9 +28,13 @@ const EditorBottomToolbar = ({ editor, mdxData }: EditorBottomToolbarProps) => {
 		setSaveState("saving");
 
 		const content = editor.getHTML();
+
+		if(!mdxData) return;
+
 		await UpdateMDX(mdxData.id, {
 			content: content,
 		})
+			// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 			.then((data: any) => {
 				console.log("UpdateMDX Success");
 				setCurrentMDX(data.data[0]);
@@ -46,9 +50,15 @@ const EditorBottomToolbar = ({ editor, mdxData }: EditorBottomToolbarProps) => {
 
 	const ViewProject = async () => {
 		if (editor === null) return;
+
+		setIsViewing(true);
+
+		if(saveState === "normal") await SaveChanges();
+
+		if(!mdxData) return;
+
 		const slug = getProjectByMxd(mdxData.id)?.slug;
 		router.push("/projects/" + slug);
-		setIsViewing(true);
 	}
 
 	// listen for changes in the editor
@@ -64,7 +74,7 @@ const EditorBottomToolbar = ({ editor, mdxData }: EditorBottomToolbarProps) => {
 		return () => {
 			editor.off("update", handler);
 		};
-	}, [editor]);
+	}, [editor, setSaveState]);
 
 	return (
 		<div className="fixed bottom-0 left-0 w-full z-10">
@@ -76,7 +86,7 @@ const EditorBottomToolbar = ({ editor, mdxData }: EditorBottomToolbarProps) => {
 							<span className="text-sm">
 								{editor === null
 									? "Loading..."
-									: GetHumanizedDifference(mdxData?.update_date)}
+									: mdxData && GetHumanizedDifference(mdxData?.update_date)}
 							</span>
 						</div>
 					</div>

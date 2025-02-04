@@ -4,6 +4,7 @@ import React from 'react'
 
 const Logo = () => {
   return (
+  // eslint-disable-next-line @next/next/no-html-link-for-pages
 	<a className='flex flex-col items-left justify-center' href='/'>
 		{/* <div className='flex items-center justify-center h-10 w-10 rounded-2xl bg-white text-black drop-shadow-lg'/> */}
         <div className='pl-1 text-white font-bold'>

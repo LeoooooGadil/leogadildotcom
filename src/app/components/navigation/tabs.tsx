@@ -5,11 +5,6 @@ import { useRouter } from "next/navigation";
 import { IconType } from "react-icons";
 import { motion, AnimatePresence } from "framer-motion";
 
-import {
-  RiProjectorFill,
-  RiPencilFill,
-  RiAdminFill,
-} from "react-icons/ri";
 import { TbHomeFilled, TbBriefcaseFilled, TbBallpenFilled, TbShieldFilled } from "react-icons/tb";
 
 const tabs = [
@@ -92,8 +87,6 @@ interface TabProps {
 const Tab: React.FC<TabProps> = ({
   name,
   Icon,
-  link,
-  active,
   handleTabChange,
 }) => {
   const [onHover, setOnHover] = useState(false);
@@ -105,7 +98,7 @@ const Tab: React.FC<TabProps> = ({
         <motion.button
           onClick={(e) => {
             e.preventDefault();
-            handleTabChange && handleTabChange(name);
+            if(handleTabChange) handleTabChange(name);
           }}
           onPointerEnter={() => setOnHover(true)}
           onPointerLeave={() => setOnHover(false)}

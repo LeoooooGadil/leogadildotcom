@@ -83,19 +83,19 @@ interface ButtonProps {
   onClick: () => void;
 }
 
-const Button = ({ name, Icon, active, onClick }: ButtonProps) => {
-  return (
-    <button
-      className={`${
-        active ? "bg-[--color-primary]" : ""
-      } hover:brightness-80 transition-all text-white h-8 px-3 w-max rounded-lg flex items-center justify-center`}
-      onClick={onClick}
-    >
-      {/* if there's an icon show it, else show the name */}
-      {Icon ? <Icon size={16} /> : name}
-    </button>
-  );
-};
+// const Button = ({ name, Icon, active, onClick }: ButtonProps) => {
+//   return (
+//     <button
+//       className={`${
+//         active ? "bg-[--color-primary]" : ""
+//       } hover:brightness-80 transition-all text-white h-8 px-3 w-max rounded-lg flex items-center justify-center`}
+//       onClick={onClick}
+//     >
+//       {/* if there's an icon show it, else show the name */}
+//       {Icon ? <Icon size={16} /> : name}
+//     </button>
+//   );
+// };
 
 const SmallButton = ({ name, Icon, active, onClick }: ButtonProps) => {
   return (

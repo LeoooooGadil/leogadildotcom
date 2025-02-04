@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Editor } from "@tiptap/react";
-import { UpdateMDX } from "@/services/mdxservices";
-import Checkbox from "@/components/Checkbox";
+import { MDXDB, UpdateMDX } from "@/services/mdxservices";
 import { GetHumanizedDifference } from "@/app/utils/helpers";
 import { ImSpinner2 } from "react-icons/im";
 import { useEditorContext } from "@/app/contexts/EditorContext";
@@ -13,7 +12,7 @@ import { useMDXContext } from "@/app/contexts/MDXContext";
 
 interface EditorComponentProps {
   editor: Editor | null;
-  mdxData?: any;
+  mdxData: MDXDB;
 }
 
 const EditorInformation = ({ editor, mdxData }: EditorComponentProps) => {
@@ -32,6 +31,7 @@ const EditorInformation = ({ editor, mdxData }: EditorComponentProps) => {
     await UpdateMDX(mdxData.id, {
       content: content,
     })
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
       .then((data: any) => {
         console.log("UpdateMDX Success");
         setCurrentMDX(data.data[0]);
@@ -65,7 +65,7 @@ const EditorInformation = ({ editor, mdxData }: EditorComponentProps) => {
     return () => {
       editor.off("update", handler);
     };
-  }, [editor]);
+  }, [editor, setSaveState]);
 
   return (
     <div className="mt-8 w-full sticky top-20 mx-auto lg:px-0 max-w-[576px] lg:mx-0">

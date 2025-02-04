@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
 import { EditorContent, Editor } from "@tiptap/react";
-import EditorToolbarComponent from "@/app/x/components/editor/components/editortoolbarcomponent";
 import { ImSpinner2 } from "react-icons/im";
 import { useEditorContext } from "@/app/contexts/EditorContext";
 
@@ -29,13 +28,13 @@ const EditorComponent = ({ editor }: EditorComponentProps) => {
       editor.off("update", handler);
       window.onbeforeunload = null;
     };
-  }, [editor]);
+  }, [editor, setSaveState]);
 
   useEffect(() => {
     if (editor === null) return;
 
     if (saveState === "saved") window.onbeforeunload = null;
-  }, [saveState]);
+  }, [saveState, editor]);
 
   return (
     <div className="relative mx-auto px-4 lg:px-0 max-w-[576px] w-full">
