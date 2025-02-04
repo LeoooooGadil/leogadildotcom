@@ -1,59 +1,71 @@
-
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { useEditorContext } from "@/app/contexts/EditorContext";
 import React, { useState, useEffect, useRef } from "react";
+import { IconType } from "react-icons";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
 // Types
 interface IconDropdownProps {
-  options: React.ElementType[];
+  options: IconType[];
   onSelect: (index: number) => void;
   isActive: (index: number) => boolean | undefined;
 }
 
-interface DropdownOptionProps {
-  Icon: React.ElementType;
-  isActive: boolean;
-  onClick: () => void;
-}
+export const IconDropdown: React.FC<IconDropdownProps> = ({
+  options,
+  onSelect,
+  isActive,
+}) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const [active, setActive] = useState<boolean>(false);
+  const [selectedOption, setSelectedOption] = useState<number>(0);
 
-interface DropdownButtonProps {
-  Icon: React.ElementType;
-  isActive: boolean;
-  onClick: () => void;
-}
+  useEffect(() => {
+    const activeIndex = options.findIndex((_, index) => isActive(index));
 
-export interface DropdownOptionsDialogBoxProps {
-  open: boolean;
-  dropdownContentRef: React.RefObject<HTMLDivElement | null>;
-  dropdownStyle: React.CSSProperties;
-  options: React.ElementType[];
-  isActive: (index: number) => boolean | undefined;
-  onSelect: (icon: React.ElementType, index: number) => void;
-}
+    if (activeIndex !== -1) {
+      setSelectedOption(activeIndex);
+      setActive(true);
+    } else setActive(false);
+  }, [options, isActive, active]);
 
-// Components
-const DropdownButton: React.FC<DropdownButtonProps> = ({ Icon, isActive, onClick }) => (
-  <button
-    className={`py-2.5 px-3 ${isActive ? "bg-[--color-primary] hover:bg-[--color-primary-hover]" : "hover:bg-[--color-dark-accent-1]"}`}
-    onClick={onClick}
-  >
-    <Icon size={20} />
-  </button>
-);
-
-const DropdownOption: React.FC<DropdownOptionProps> = ({ Icon, isActive, onClick }) => (
-  <button
-    className={`transition-colors px-4 py-2 flex items-center ${isActive ? "bg-[--color-primary]" : "hover:bg-[--color-dark-accent-1]"}`}
-    onClick={onClick}
-  >
-    <Icon size={20} />
-  </button>
-);
-
-export const IconDropdown: React.FC<IconDropdownProps> = ({ options, onSelect, isActive }) => {
-  return null;
+  return (
+    <div className={` text-white rounded-lg h-10 flex overflow-y-hidden border ${
+      active
+      ? "border-[--color-primary-hover]" : "border-[--color-dark-accent-1]"
+    }`}>
+      <button
+        className={`pl-3 pr-3 py-2 transition-colors
+        ${
+          active
+            ? "bg-[--color-primary]"
+            : "bg-[--color-dark-accent] hover:bg-[--color-dark-accent-1]"
+        }
+        `}
+        onClick={() => onSelect(selectedOption)}
+      >
+        {options[selectedOption] &&
+          React.createElement(options[selectedOption], { size: 20 })}
+      </button>
+      <button
+        className={`px-1 transition-colors
+        ${
+          active
+            ? "bg-[--color-primary]"
+            : "bg-[--color-dark-accent] hover:bg-[--color-dark-accent-1]"
+        }
+      `}
+        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+      >
+        {isDropdownOpen ? (
+          <IoIosArrowUp size={12} />
+        ) : (
+          <IoIosArrowDown size={12} />
+        )}
+      </button>
+    </div>
+  );
 };
 
 export const DropdownOptionsDialogBox: React.FC = () => {
@@ -61,5 +73,5 @@ export const DropdownOptionsDialogBox: React.FC = () => {
 
   if (!dropdownContext?.open) return null;
 
-  return null
+  return null;
 };

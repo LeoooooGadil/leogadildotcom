@@ -11,8 +11,8 @@ export const Button = ({ name, Icon, active, onClick, isDisabled }: ButtonProps)
   return (
     <button
       className={`${active
-          ? "bg-[--color-primary]"
-          : "bg-[--color-dark-accent] hover:bg-[--color-dark-accent-1]"} transition-colors text-white px-4 py-2 rounded-lg h-10`}
+          ? "bg-[--color-primary] border border-[--color-primary-hover]"
+          : "bg-[--color-dark-accent] hover:bg-[--color-dark-accent-1] border border-[--color-dark-accent-1]"} transition-colors text-white px-4 py-2 rounded-lg h-10`}
       disabled={isDisabled}
       onClick={onClick}
     >
