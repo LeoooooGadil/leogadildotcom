@@ -25,11 +25,17 @@ const ProjectDetails = ({ project, mdx }: ProjectDetailsProps) => {
     <EnterDropMotionDiv delay={0.2}>
       <div className="w-11/12 md:w-full mx-auto">
         <div className="flex flex-col gap-2 mb-10">
-          <button className="text-left" onClick={EditMDX}>
+          {process.env.NODE_ENV === "development" ? (
+            <button className="text-left" onClick={EditMDX}>
+              <h1 className="text-5xl md:text-6xl font-bold lg:text-6xl uppercase">
+                {mdx.title}
+              </h1>
+            </button>
+          ) : (
             <h1 className="text-5xl md:text-6xl font-bold lg:text-6xl uppercase">
               {mdx.title}
             </h1>
-          </button>
+          )}
           <p className="opacity-80 lg:text-lg">{mdx.subtitle}</p>
         </div>
         <div className="flex gap-4">

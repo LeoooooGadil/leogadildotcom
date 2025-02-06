@@ -34,7 +34,7 @@ export default function RootLayout({
 				<ProjectsContextProvider>
 					<BlogsContextProvider>
 						<MDXContextProvider>
-							<div className="w-full flex justify-center">
+							<div className="flex justify-center">
 								<Navigation />
 							</div>
 							{children}

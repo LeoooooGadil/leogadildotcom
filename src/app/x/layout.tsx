@@ -9,9 +9,6 @@ export default function AdminLayout({
     <EditorContextProvider>
       <div className={`mx-auto max-w-screen-xl overflow-hidden`}>
         <div className="relative">{children}
-          <div>
-            {/* <FooterComponent /> */}
-          </div>
         </div>
       </div>
     </EditorContextProvider>

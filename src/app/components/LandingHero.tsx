@@ -20,13 +20,12 @@ const LandingTextComponent = () => {
             </h1>
           </div>
         </div>
-      </EnterDropMotionDiv>
-      <EnterDropMotionDiv delay={0.1}>
-        <div className="text-center mt-8 lg:mt-6 lg:text-left max-w-sm lg:max-w-md mx-auto px-6 lg:px-0 lg:mx-0">
-          <p className="text-md text-[--color-light] font-normal opacity-60">
+
+        <div className="text-center mt-8 lg:mt-6 lg:text-left lg:max-w-md mx-auto lg:px-0 lg:mx-0">
+          <span className="text-md text-[--color-light] font-normal opacity-60">
             Self-Taught Software Developer, Film Maker, and a recent
             graduate of Bachelor of Science in Computer Science.
-          </p>
+          </span>
         </div>
         <div className="flex justify-center lg:justify-start mt-8 lg:mt-9 mb-12">
           <TbCaretDownFilled size={28} className="block lg:hidden animate-bounce" />

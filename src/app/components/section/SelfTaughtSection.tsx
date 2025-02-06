@@ -9,10 +9,10 @@ const SelfThoughtComponent = () => {
       <div className="my-6">
         <SectionTitleComponent title="self-taught" subtitle="coder" />
         <div className="text-center mt-2 lg:text-left">
-          <p className="max-w-md lg:max-w-lg mx-auto lg:mx-0 text-md text-[--color-light] font-normal opacity-60 px-8 lg:px-0">
+          <span className="max-w-md lg:max-w-lg mx-auto lg:mx-0 text-md text-[--color-light] font-normal opacity-60 px-8 lg:px-0">
             As a self-taught coder, I quickly learn new tech and solve problems
             through continuous practice.
-          </p>
+          </span>
         </div>
         <div className="flex flex-col gap-1 mt-8 p-3 lg:p-0 md:items-center lg:items-start">
           <BlogCard

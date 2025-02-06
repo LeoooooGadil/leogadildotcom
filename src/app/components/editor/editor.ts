@@ -21,5 +21,4 @@ const useTipTapEditor = () => {
   return tiptap;
 };
 
-
 export default useTipTapEditor;

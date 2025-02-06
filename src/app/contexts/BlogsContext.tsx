@@ -21,9 +21,9 @@ interface BlogsContextProviderProps {
 	children: ReactNode
 }
 
-export default function BlogsContextProvider({
+const BlogsContextProvider = ({
 	children
-}: BlogsContextProviderProps) {
+}: BlogsContextProviderProps) => {
 	const [blogs, setBlogs] = useState<BlogDB[] | null>(null);
 
 	return (
@@ -35,7 +35,7 @@ export default function BlogsContextProvider({
 	)
 }
 
-export function useBlogsContext() {
+export const useBlogsContext = () => {
 	const context = useContext(BlogsContext);
 	if (context === undefined) {
 		throw new Error(
@@ -44,3 +44,5 @@ export function useBlogsContext() {
 	}
 	return context;
 }
+
+export default BlogsContextProvider

@@ -16,9 +16,9 @@ interface MDXContextProviderProps {
   children: ReactNode;
 }
 
-export default function MDXContextProvider({
+const MDXContextProvider = ({
   children,
-}: MDXContextProviderProps) {
+}: MDXContextProviderProps) => {
   const [mdxList, setMdxList] = useState<MDXDB[] | null>(null);
 
   const getMDXById = (id: string) => {
@@ -55,10 +55,12 @@ export default function MDXContextProvider({
   );
 }
 
-export function useMDXContext() {
+export const useMDXContext = () => {
   const context = useContext(MDXContext);
   if (context === undefined) {
     throw new Error("useMDXContext must be used within an MDXContextProvider");
   }
   return context;
 }
+
+export default MDXContextProvider;

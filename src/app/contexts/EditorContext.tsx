@@ -34,9 +34,9 @@ interface EditorContextProviderProps {
   children: ReactNode;
 }
 
-export default function EditorContextProvider({
+const EditorContextProvider = ({
   children,
-}: EditorContextProviderProps) {
+}: EditorContextProviderProps) => {
   const editor = useTipTapEditor(); // ✅ Now using a proper hook
   const [currentMDX, setCurrentMDX] = useState<MDXData | null>(null);
   const [saveState, setSaveState] = useState<SaveState>("saving");
@@ -48,7 +48,7 @@ export default function EditorContextProvider({
   );
 }
 
-export function useEditorContext() {
+export const useEditorContext = () => {
   const context = useContext(EditorContext);
   if (context === undefined) {
     throw new Error(
@@ -57,3 +57,5 @@ export function useEditorContext() {
   }
   return context;
 }
+
+export default EditorContextProvider;

@@ -26,21 +26,21 @@ interface ProjectsContextProviderProps {
   children: ReactNode;
 }
 
-export default function ProjectsContextProvider({
+const ProjectsContextProvider = ({
   children,
-}: ProjectsContextProviderProps) {
+}: ProjectsContextProviderProps) => {
   const [projects, setProjects] = useState<ProjectDB[] | null>(null);
 
   const getProjectBySlug = (slug: string | string[]) => {
     if (!projects) return undefined;
-    
-    if(typeof slug === "string") {
+
+    if (typeof slug === "string") {
       return projects.find((project) => project.slug === slug);
     } else if (Array.isArray(slug)) {
       return slug
-      .map((projectslug) => 
-        projects.find((project) => project.slug === projectslug)
-      ).filter(Boolean)
+        .map((projectslug) =>
+          projects.find((project) => project.slug === projectslug)
+        ).filter(Boolean)
     }
 
     return undefined;
@@ -98,7 +98,7 @@ export default function ProjectsContextProvider({
   );
 }
 
-export function useProjectsContext() {
+export const useProjectsContext = () => {
   const context = useContext(ProjectsContext);
   if (context === undefined) {
     throw new Error(
@@ -107,3 +107,5 @@ export function useProjectsContext() {
   }
   return context;
 }
+
+export default ProjectsContextProvider

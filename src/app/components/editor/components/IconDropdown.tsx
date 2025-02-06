@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { useEditorContext } from "@/app/contexts/EditorContext";
 import React, { useState, useEffect, useRef } from "react";
 import { IconType } from "react-icons";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
@@ -31,9 +30,12 @@ export const IconDropdown: React.FC<IconDropdownProps> = ({
   }, [options, isActive, active]);
 
   return (
-    <div className={` text-white rounded-lg h-10 flex overflow-y-hidden border ${active
-        ? "border-[--color-primary-hover]" : "border-[--color-dark-accent-1]"
-      }`}>
+    <div
+      className={` text-white rounded-lg h-10 flex overflow-y-hidden border ${active
+        ? "border-[--color-primary-hover]"
+        : "border-[--color-dark-accent-1]"
+        }`}
+    >
       <button
         className={`pl-3 pr-3 py-2 transition-colors
         ${active
@@ -61,10 +63,20 @@ export const IconDropdown: React.FC<IconDropdownProps> = ({
           <IoIosArrowDown size={12} />
         )}
       </button>
+
+      {
+        isDropdownOpen &&
+        <div className="flex items-center gap-2 fixed top-16 h-12 -translate-x-1/2 bg-[--color-dark] border-b border-[--color-dark-accent-1] ">
+          {options.map((Opt, index) => {
+            return (
+              <button key={index}>
+                <Opt size={20} />
+              </button>
+            );
+          })}
+        </div>
+      }
+
     </div>
   );
-};
-
-export const DropdownOptionsDialogBox: React.FC = () => {
-  return null;
 };
