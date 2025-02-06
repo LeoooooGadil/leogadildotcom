@@ -6,8 +6,6 @@ import "./syntaxhighlight.css";
 import ProjectsContextProvider from "@/contexts/ProjectsContext";
 import MDXContextProvider from "@/contexts/MDXContext";
 import BlogsContextProvider from "@/contexts/BlogsContext";
-import Navigation from "@/components/navigation/navigation";
-import Footer from "@/components/Footer";
 
 const globalFont = Poppins({
 	display: "swap",
@@ -29,18 +27,12 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${globalFont.className} bg-[--color-dark] text-white mx-auto max-w-screen-lg overflow-y-scroll`}
+				className={`${globalFont.className} bg-[--color-dark] text-white mx-auto max-w-screen-lg`}
 			>
 				<ProjectsContextProvider>
 					<BlogsContextProvider>
 						<MDXContextProvider>
-							<div className="flex justify-center">
-								<Navigation />
-							</div>
 							{children}
-							<div>
-								<Footer />
-							</div>
 						</MDXContextProvider>
 					</BlogsContextProvider>
 				</ProjectsContextProvider>

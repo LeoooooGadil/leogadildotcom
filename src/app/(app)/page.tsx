@@ -5,7 +5,7 @@ import ToolsComponent from "@/components/section/ToolsSection";
 import FeaturedBlogPostComponent from "@/components/section/FeaturedBlogSection";
 import ContactMeComponent from "@/components/section/ContactMeSection";
 import ImGladToSeeYouHereComponent from "@/components/SpecialText";
-import HeroSection from "./components/section/HeroSection";
+import HeroSection from "../components/section/HeroSection";
 
 export default function Home() {
 	return (

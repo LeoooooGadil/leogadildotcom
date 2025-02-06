@@ -8,8 +8,7 @@ export default function AdminLayout({
   return (
     <EditorContextProvider>
       <div className={`mx-auto max-w-screen-xl overflow-hidden`}>
-        <div className="relative">{children}
-        </div>
+        <div className="relative">{children}</div>
       </div>
     </EditorContextProvider>
   );
