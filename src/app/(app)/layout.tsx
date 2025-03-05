@@ -7,7 +7,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<>
+		<div className="mx-auto max-w-screen-lg">
 			<div className="flex justify-center">
 				<Navigation />
 			</div>
@@ -15,6 +15,6 @@ export default function RootLayout({
 			<div>
 				<Footer />
 			</div>
-		</>
+		</div>
 	);
 }

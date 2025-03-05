@@ -31,7 +31,6 @@ export type ProjectDB = {
 const CreateNewProject = async (projectData: ProjectNewData) => {
   return new Promise(async (resolve, reject) => {
     try {
-
       const _mdxData = {
         type: "project" as mdxType,
         title: projectData.name,
@@ -42,15 +41,15 @@ const CreateNewProject = async (projectData: ProjectNewData) => {
         content: "",
       };
       // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-      const mdxResponse = await CreateNewMDX(_mdxData) as { data: any };
-      
+      const mdxResponse = (await CreateNewMDX(_mdxData)) as { data: any };
+
       if (!mdxResponse.data || !mdxResponse.data[0]?.id) {
         throw new Error("Failed to create MDX. Invalid response data.");
       }
 
       const _projectData = {
         name: projectData.name,
-        slug: projectData.name.toLowerCase().replace(/\s+/g, '-'),
+        slug: projectData.name.toLowerCase().replace(/\s+/g, "-"),
         subtitle: projectData.subtitle,
         description: projectData.description,
         image: projectData.image,
@@ -59,12 +58,15 @@ const CreateNewProject = async (projectData: ProjectNewData) => {
         mdx_id: mdxResponse.data[0].id,
         create_date: moment().format(),
         update_date: moment().format(),
-      }
+      };
 
-      const validation = ValidateNewProject({ json: _projectData});
-      if(!validation.valid) throw new Error(`Error: ${validation.errors}`);
+      const validation = ValidateNewProject({ json: _projectData });
+      if (!validation.valid) throw new Error(`Error: ${validation.errors}`);
 
-      const { data, error } = await supabase.from("projects").insert(_projectData).select();
+      const { data, error } = await supabase
+        .from("projects")
+        .insert(_projectData)
+        .select();
 
       if (error) {
         throw new Error(`Insert failed: ${error.message}`);
@@ -80,18 +82,36 @@ const CreateNewProject = async (projectData: ProjectNewData) => {
 const SelectProject = async (projectid: string) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const { data, error } = await supabase.from("project").select().eq("id", projectid);
+      const { data, error } = await supabase
+        .from("project")
+        .select()
+        .eq("id", projectid);
 
-      if(error) {
-        throw new Error(`Select failed: ${error.message}`);
-      }
+      if (error) throw new Error(`Select failed: ${error.message}`);
 
-      resolve({ data })
-    } catch(error) {
+      resolve({ data });
+    } catch (error) {
       reject(error);
     }
   });
-}
+};
+
+const SelectProjectBySlug = async (projectslug: string) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const { data, error } = await supabase
+        .from("project")
+        .select()
+        .eq("slug", projectslug);
+
+      if (error) throw new Error(`Select failed: ${error.message}`);
+
+      resolve({ data });
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
 
 const GetAllProjects = async () => {
   return new Promise(async (resolve, reject) => {
@@ -109,4 +129,4 @@ const GetAllProjects = async () => {
   });
 };
 
-export { CreateNewProject, SelectProject, GetAllProjects };
+export { CreateNewProject, SelectProject, GetAllProjects, SelectProjectBySlug };

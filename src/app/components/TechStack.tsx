@@ -134,7 +134,7 @@ const HighlightTechStack = ({ icon }: HighlightTechStackProps) => {
       transition={{ duration: 0.2 }}
     >
       <div className="flex flex-col">
-        <div className="flex items-center justify-center h-12 p-3">
+        <div className="flex items-center justify-center h-12">
           <div className="md:block lg:hidden">
             <TechIcon iconName={icon} size={32} />
           </div>

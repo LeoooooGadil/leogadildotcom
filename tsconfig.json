@@ -24,9 +24,9 @@
       "@/contexts/*": ["./src/app/contexts/*"],
       "@/services/*": ["./src/app/services/*"],
       "@/utils/*": ["./src/app/utils/*"],
-      "@/admin/*": ["src/app/(admin)/x/*"],
+      "@/admin/*": ["./src/app/(admin)/x/*"],
       "@/assets/*": ["./src/assets/*"],
-      "@/components/*": ["./src/app/components/*", "src/app/(admin)/x/components/*"],
+      "@/components/*": ["./src/app/components/*", "./src/app/(admin)/x/components/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

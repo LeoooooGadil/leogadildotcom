@@ -1,11 +1,8 @@
 import React from "react";
+import MainWindowComponent from "@/components/mainwindow/mainwindow-component";
 
 const Administrator = () => {
-  return (
-    <div className="flex flex-col lg:flex-row">
-
-    </div>
-  );
+  return <MainWindowComponent />;
 };
 
 export default Administrator;

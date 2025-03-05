@@ -1,6 +1,8 @@
 import React from "react";
+import Image from "next/image";
 import SectionTitleComponent from "@/components/SectionTitle";
 import EnterWhileInViewMotionDiv from "@/components/motion/EnterWhileInViewMotionDiv";
+import LineAcross from "@/assets/images/LineAcross.svg";
 
 import SocialList from "@/components/SocialList";
 
@@ -19,7 +21,12 @@ const ContactMeSection = () => {
 
         <div className="relative px-6 md:px-0 mt-4 lg:mt-14 w-full lg:w-full top-7">
           <div className="overflow-hidden flex flex-col bg-[--color-light] p-6 px-6 lg:px-8 rounded-2xl drop-shadow-lg w-full max-w-[576px] lg:max-w-none mx-auto lg:mx-0">
-            <div className="w-96 h-96 -bottom-24 lg:-top-24 -right-20 opacity-60 absolute border-dotted border-4 border-[--color-primary] [border-radius:53%_47%_71%_29%/58%_25%_75%_42%]"></div>
+            <Image
+              priority
+              src={LineAcross}
+              alt="LineAcross"
+              className="pointer-events-none absolute w-[56rem] h-[24rem] -bottom-24 lg:-bottom-32 -left-2"
+            />
 
             <div className="z-30">
               <p className="text-left text-lg md:text-xl font-normal text-[--color-dark]">

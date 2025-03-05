@@ -1,4 +1,5 @@
 import EditorContextProvider from "@/contexts/EditorContext";
+import SideBarComponent from "@/components/sidebar/sidebar-component";
 
 export default function AdminLayout({
   children,
@@ -7,8 +8,9 @@ export default function AdminLayout({
 }>) {
   return (
     <EditorContextProvider>
-      <div className={`mx-auto max-w-screen-xl overflow-hidden`}>
-        <div className="relative">{children}</div>
+      <div className="flex h-screen">
+        <SideBarComponent />
+        <div className="">{children}</div>
       </div>
     </EditorContextProvider>
   );

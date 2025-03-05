@@ -22,10 +22,10 @@ const LandingTextComponent = () => {
         </div>
 
         <div className="text-center mt-8 lg:mt-6 lg:text-left lg:max-w-md mx-auto lg:px-0 lg:mx-0">
-          <span className="text-md text-[--color-light] font-normal opacity-60">
-            Self-Taught Software Developer, Film Maker, and a recent
+          <p className="text-md text-[--color-light] font-normal opacity-60">
+            Self-Taught Software Developer, Film Maker,<br />and a recent
             graduate of Bachelor of Science in Computer Science.
-          </span>
+          </p>
         </div>
         <div className="flex justify-center lg:justify-start mt-8 lg:mt-9 mb-12">
           <TbCaretDownFilled size={28} className="block lg:hidden animate-bounce" />

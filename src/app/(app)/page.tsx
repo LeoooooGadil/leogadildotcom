@@ -13,7 +13,7 @@ export default function Home() {
 			<div className="relative">
 				<ProfileComponent />
 			</div>
-			<div className="mt-2 flex flex-col gap-6">
+			<div className="mt-2 flex flex-col gap-12">
 				<HeroSection />
 				<ImGladToSeeYouHereComponent />
 				<RecentProjectComponent />

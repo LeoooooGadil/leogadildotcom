@@ -6,8 +6,10 @@ import DashedLine from "@/assets/images/DashedLine.svg";
 import ArrowDashedLine from "@/assets/images/ArrowDashedLine.svg";
 
 const ProfileComponent = () => {
+
   return (
-    <div className="mx-0 px-4 md:px-0 lg:mx-6 lg:mt-7 w-full lg:w-80 sticky top-20">
+    <div className="group mx-0px-4 md:px-0 lg:mx-6 lg:mt-7 w-full lg:w-80 sticky top-20"
+    >
       <div className="relative overflow-hidden flex flex-col items-center bg-[--color-light] py-8 px-12 lg:px-4 rounded-2xl drop-shadow-lg w-full max-w-[576px] lg:w-80 mx-auto">
         {/* Persistent Images Positioned Above the Profile Image but Behind Texts */}
         <PersistentImages />
@@ -15,7 +17,7 @@ const ProfileComponent = () => {
         <div className="z-30 flex flex-col items-center ">
           <div className="relative rounded-[35px]">
             <div className="h-56 lg:h-72 lg:64 w-64">
-              <div className="absolute overflow-hidden profilebackground drop-shadow-xl rounded-2xl w-full h-full flex justify-center items-center">
+              <div className="absolute overflow-hidden profilebackground rounded-2xl w-full h-full flex justify-center items-center">
                 <Image
                   priority
                   src={ProfilePicture}
@@ -64,7 +66,7 @@ const PersistentImages = () => {
         priority
         src={DashedLine}
         alt="Circle"
-        className="pointer-events-none absolute w-96 h-96 -top-24 -right-4 z-[40]"
+        className="pointer-events-none absolute w-72 lg:w-96 h-96 -top-24 -right-8 lg:-right-4 z-[40]"
       />
     </>
   )

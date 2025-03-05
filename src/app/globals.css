@@ -16,6 +16,17 @@
 } */
 
 :root {
+  --color-accent: #f56f10;
+  --color-accent-hover: rgba(245, 111, 16, 0.15);
+  --color-accent-border: rgba(245, 111, 16, 0.15);
+  --color-light: #fbfbfb;
+  --color-dark-accent-3: #878787;
+  --color-dark-accent-2: #262626;
+  --color-dark-accent: #1b1a1f;
+  --color-dark: #151419;
+}
+
+/* :root {
   --color-red-border: #eb1741;
   --color-red: #921a32;
   --color-primary-hover: #049980;
@@ -30,8 +41,8 @@
   --color-dark-accent-1: #2e2e2e;
   --color-dark-accent-animate: #1f1c1c;
   --color-dark-accent: #161414;
-  --color-dark: #131010;
-}
+  --color-dark: #110f0f;
+} */
 
 body {
   color: var(--color-primary);
@@ -80,9 +91,9 @@ body {
 }
 
 .profilebackground {
-  background: rgb(218,154,29);
-background: -moz-linear-gradient(215deg, rgba(218,154,29,1) 0%, rgba(154,105,8,1) 100%);
-background: -webkit-linear-gradient(215deg, rgba(218,154,29,1) 0%, rgba(154,105,8,1) 100%);
-background: linear-gradient(215deg, rgba(218,154,29,1) 0%, rgba(154,105,8,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#da9a1d",endColorstr="#9a6908",GradientType=1);
+  background: rgb(245,111,16);
+  background: -moz-linear-gradient(215deg, rgba(245,111,16,1) 0%, rgba(133,55,0,1) 100%);
+  background: -webkit-linear-gradient(215deg, rgba(245,111,16,1) 0%, rgba(133,55,0,1) 100%);
+  background: linear-gradient(215deg, rgba(245,111,16,1) 0%, rgba(133,55,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f56f10",endColorstr="#853700",GradientType=1);
 }

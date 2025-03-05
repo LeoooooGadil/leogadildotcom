@@ -1,6 +1,6 @@
 "use client";
 
-import { TbArrowUpRight } from "react-icons/tb";
+import { IoArrowForwardOutline } from "react-icons/io5";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -26,11 +26,10 @@ const ProjectCard = ({
 
   return (
     <button
-      className={`group flex gap-6 p-3 rounded-2xl w-full max-w-[576px] hover:bg-[--color-dark-accent] hover:drop-shadow-lg transition-colors cursor-pointer ${
-        isSkeletal &&
+      className={`group border border-transparent flex gap-6 p-3 rounded-2xl w-full max-w-[576px] hover:bg-[--color-dark-accent] hover:drop-shadow-lg hover:border-[--color-dark-accent-2] cursor-pointer ${isSkeletal &&
         "hover:bg-[--color-dark] hover:drop-shadow-none bg-[--color-dark] cursor-default"
-      } `}
-      onClick={!isSkeletal ? () => router.push(link) : () => {}}
+        } `}
+      onClick={!isSkeletal ? () => router.push(link) : () => { }}
     >
       <div className="">
         {!isSkeletal ? (
@@ -59,24 +58,29 @@ const ProjectCard = ({
           {!isSkeletal ? (
             <>
               <div className="flex justify-between">
-                <h1 className="text-2xl font-bold">{title}</h1>
+                <div>
+                  <h1 className="text-left capitalize font-bold text-sm text-[--color-accent]">
+                    Project
+                  </h1>
+                  <h1 className="text-2xl font-bold mt-1">{title}</h1>
+                </div>
                 <div className="relative">
-                  <TbArrowUpRight
+                  <IoArrowForwardOutline
                     size={25}
-                    className="transition-all absolute -left-2 group-hover:-left-1 top-3 group-hover:top-1 -translate-x-1/2 -translate-y-1/2"
+                    className="transition-all absolute -left-4 group-hover:-left-2 top-3 -translate-x-1/2 -translate-y-1/2"
                   />
                 </div>
               </div>
-              <p className="opacity-70 text-sm">{description}</p>
+              <p className="opacity-70 text-sm mt-2">{description}</p>
             </>
           ) : (
             <>
               <div className="flex justify-between">
                 <div className="bg-[--color-dark-accent] h-8 w-3/4 rounded-xl mb-2" />
                 <div className="relative">
-                  <TbArrowUpRight
+                  <IoArrowForwardOutline
                     size={25}
-                    className="transition-all absolute -left-2 group-hover:-left-1 top-3 group-hover:top-1 -translate-x-1/2 -translate-y-1/2"
+                    className="transition-all absolute -left-2 group-hover:-left-1 top-3 -translate-x-1/2 -translate-y-1/2"
                   />
                 </div>
               </div>

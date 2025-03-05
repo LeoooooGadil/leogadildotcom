@@ -31,7 +31,6 @@ export type MDXDB = {
 const CreateNewMDX = async (mdxData: MDXNewData) => {
   return new Promise(async (resolve, reject) => {
     try {
-
       const _mdxData = {
         title: mdxData.title,
         type: mdxData.type,
@@ -42,12 +41,15 @@ const CreateNewMDX = async (mdxData: MDXNewData) => {
         readtime: 0,
         create_date: moment().format(),
         update_date: moment().format(),
-      }
+      };
 
-      const validation = ValidateNewMDX({ json: _mdxData});
-      if(!validation.valid) throw new Error(`Error: ${validation.errors}`);
+      const validation = ValidateNewMDX({ json: _mdxData });
+      if (!validation.valid) throw new Error(`Error: ${validation.errors}`);
 
-      const { data, error } = await supabase.from("mdx").insert(_mdxData).select();
+      const { data, error } = await supabase
+        .from("mdx")
+        .insert(_mdxData)
+        .select();
 
       if (error) {
         throw new Error(`Insert failed: ${error.message}`);
@@ -63,7 +65,10 @@ const CreateNewMDX = async (mdxData: MDXNewData) => {
 const SelectMDX = async (mdxId: string) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const { data, error } = await supabase.from("mdx").select().eq("id", mdxId);
+      const { data, error } = await supabase
+        .from("mdx")
+        .select()
+        .eq("id", mdxId);
 
       if (error) {
         throw new Error(`Select failed: ${error.message}`);
@@ -74,7 +79,7 @@ const SelectMDX = async (mdxId: string) => {
       reject(error);
     }
   });
-}
+};
 
 interface MDXUpdateData {
   content: string;
@@ -83,22 +88,26 @@ interface MDXUpdateData {
 const UpdateMDX = async (mdxId: string, mdxData: MDXUpdateData) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const { data, error } = await supabase.from("mdx").update({
-        content: mdxData.content,
-        readtime: CalculateReadTimeFromHTML(mdxData.content),
-        update_date: moment().format(),
-      }).eq("id", mdxId).select();
+      const { data, error } = await supabase
+        .from("mdx")
+        .update({
+          content: mdxData.content,
+          readtime: CalculateReadTimeFromHTML(mdxData.content),
+          update_date: moment().format(),
+        })
+        .eq("id", mdxId)
+        .select();
 
       if (error) {
         throw new Error(`Update failed: ${error.message}`);
       }
-      
+
       resolve({ data });
     } catch (error) {
       reject(error);
     }
   });
-}
+};
 
 const GetAllMDX = async () => {
   return new Promise(async (resolve, reject) => {

@@ -27,7 +27,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${globalFont.className} bg-[--color-dark] text-white mx-auto max-w-screen-lg`}
+				className={`${globalFont.className} bg-[--color-dark] text-white`}
 			>
 				<ProjectsContextProvider>
 					<BlogsContextProvider>
